@@ -102,4 +102,4 @@
 
 ---
 *Requirements defined: 2026-04-26*  
-*Last updated: 2026-04-27 — IA, mobile-first chrome, i18n UX, social, bespoke contact, SEO*
+*Last updated: 2026-04-27 — `index.html` as home; legacy `the-collection.html` redirect; static form hand-off (no server)*
