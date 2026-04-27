@@ -484,7 +484,7 @@
                     if (statusEl) statusEl.textContent = shmValidationMsg(result.key);
                     return;
                 }
-                input.setAttribute('aria-invalid', 'false');
+                input.removeAttribute('aria-invalid');
                 if (err) err.classList.add('hidden');
                 const formEl = document.querySelector('input[name="form"]:checked');
                 const intEl = document.querySelector('input[name="intensity"]:checked');
