@@ -225,7 +225,11 @@ Plans:
 1. Every public page that shows footer social links either uses **ship-ready URLs** in one documented edit location or the three links are **omitted** (or visually suppressed) with a code comment and `.planning` note when URLs are TBD.
 2. `rg 'TODO' --glob '*.html'` (and key JS) shows **no** `instagram.com/TODO`, `t.me/TODO`, or `wa.me/TODO` (unless explicitly documented as a deliberate staging exception).
 
-**Plans**: 0 plans
+**Plans**: 1 plan (`09-01-PLAN.md`)
+
+Plans:
+
+- [ ] 09-01: Centralize social URLs in `social-urls.js`, remove all `*TODO` hrefs, update README and deploy
 
 **UI hint**: no (link targets only; layout unchanged)
 
