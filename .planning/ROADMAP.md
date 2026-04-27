@@ -107,7 +107,7 @@ Plans:
 
 Plans:
 
-- [ ] 04-01: Deploy doc, canonical + meta/OG + SEO-01 checklist, final link crawl before go-live
+- [x] 04-01: Deploy doc, canonical + meta/OG + SEO-01 checklist, final link crawl before go-live
 
 **UI hint**: no
 
