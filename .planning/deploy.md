@@ -27,7 +27,8 @@ Open the printed URL (often `http://localhost:8080`). Confirm `/` and `/index.ht
 
 ## Pre-flight placeholders
 
-- **`BESPOKE_MAILTO`** and the **`SOCIAL`** URL map in page scripts — replace with production values (see `README.md` and `.planning/REQUIREMENTS.md`).
+- **`BESPOKE_MAILTO`** in `bespoke.html` (concierge / mailto) — replace with a production address when ready.
+- **Footer social links:** edit **`social-urls.js` at the repo root** only — set `SHM_SOCIAL_ENABLED` to `true` and fill `SHMALEON_SOCIAL` with final Instagram, Telegram, and WhatsApp `https://` targets (or leave `SHM_SOCIAL_ENABLED` as `false` to keep the three-link block hidden). See `README.md` and `.planning/REQUIREMENTS.md` (SOCIAL-01).
 - Trust/legal copy: remove **draft** banners only after counsel approval.
 
 ## GitHub Pages (project site, optional)

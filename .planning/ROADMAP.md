@@ -229,7 +229,7 @@ Plans:
 
 Plans:
 
-- [ ] 09-01: Centralize social URLs in `social-urls.js`, remove all `*TODO` hrefs, update README and deploy
+- [x] 09-01: Centralize social URLs in `social-urls.js`, remove all `*TODO` hrefs, update README and deploy
 
 **UI hint**: no (link targets only; layout unchanged)
 

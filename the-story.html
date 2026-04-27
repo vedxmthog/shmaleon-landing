@@ -109,12 +109,18 @@
     }
 </style>
 <script src="i18n.js"></script>
+<script src="social-urls.js"></script>
 <script>
-        const SOCIAL = { instagram: 'https://instagram.com/TODO', telegram: 'https://t.me/TODO', whatsapp: 'https://wa.me/TODO' };
-
         function syncStoryFooterSocial() {
             const root = document.getElementById('footer-social-story');
             if (!root) return;
+            if (window.SHM_SOCIAL_ENABLED === false) {
+                root.classList.add('hidden');
+                return;
+            }
+            root.classList.remove('hidden');
+            const SOCIAL = window.SHMALEON_SOCIAL;
+            if (!SOCIAL) return;
             const links = root.querySelectorAll('a');
             if (links[0]) links[0].href = SOCIAL.instagram;
             if (links[1]) links[1].href = SOCIAL.telegram;
@@ -371,9 +377,9 @@
         </div>
 <div class="font-noto-serif text-[10px] tracking-widest uppercase text-neutral-500 text-center md:text-left"><span data-i18n="footer_copyright">© 2026 SHMALEON. BY INVITATION ONLY.</span></div>
 <div class="flex flex-wrap gap-4 md:gap-6 font-noto-serif text-[10px] tracking-widest uppercase justify-center md:justify-start" id="footer-social-story">
-<a class="text-neutral-500 hover:text-secondary transition-colors duration-500" href="https://instagram.com/TODO" rel="noopener noreferrer" target="_blank">Instagram</a>
-<a class="text-neutral-500 hover:text-secondary transition-colors duration-500" href="https://t.me/TODO" rel="noopener noreferrer" target="_blank">Telegram</a>
-<a class="text-neutral-500 hover:text-secondary transition-colors duration-500" href="https://wa.me/TODO" rel="noopener noreferrer" target="_blank">WhatsApp</a>
+<a class="text-neutral-500 hover:text-secondary transition-colors duration-500" href="https://www.instagram.com/" rel="noopener noreferrer" target="_blank">Instagram</a>
+<a class="text-neutral-500 hover:text-secondary transition-colors duration-500" href="https://t.me/" rel="noopener noreferrer" target="_blank">Telegram</a>
+<a class="text-neutral-500 hover:text-secondary transition-colors duration-500" href="https://wa.me/" rel="noopener noreferrer" target="_blank">WhatsApp</a>
 </div>
 <div class="flex gap-6 font-noto-serif text-[10px] tracking-widest uppercase">
 <a class="text-neutral-500 hover:text-secondary transition-colors duration-500" href="legal.html"><span data-i18n="footer_legal">Legal</span></a>

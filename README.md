@@ -20,4 +20,9 @@ Use the URL the tool prints (often `http://localhost:8080`). The home page is **
 
 Full hosting steps, local verify, and **`__CANONICAL_ORIGIN__`** find-replace before production are documented in [`.planning/deploy.md`](.planning/deploy.md). The site is static; **GitHub Pages** (or any static host) can serve the root of this branch. Use **relative** links between pages so a project site at `https://<user>.github.io/<repo>/` keeps working.
 
-**Bespoke request hand-off:** `bespoke.html` submits only via client-side `mailto:` or `https://wa.me/…` (no backend). Before launch, replace the `BESPOKE_MAILTO` placeholder and the `SOCIAL` URL map (`instagram` / `telegram` / `whatsapp`) in each page script with production destinations.
+**Bespoke request hand-off:** `bespoke.html` submits only via client-side `mailto:` or `https://wa.me/…` (no backend). Before launch, replace the `BESPOKE_MAILTO` placeholder in that page’s script.
+
+**Footer social (Instagram, Telegram, WhatsApp):** edit **[`social-urls.js`](social-urls.js)** only — it is the single source of truth:
+
+- `window.SHM_SOCIAL_ENABLED` — set to `true` to show the three-link footer block; set to `false` to hide it until public handles are ready.
+- `window.SHMALEON_SOCIAL` — the three `https://` profile URLs, aligned with the brand. Do not reintroduce per-page `SOCIAL` object literals; pages load this file after `i18n.js`.
