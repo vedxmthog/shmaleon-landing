@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html class="dark" lang="en"><head>
+<html class="dark lang-en" lang="en"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>SHMALEON - The Story</title>
@@ -95,6 +95,14 @@
             }
         }
     </script>
+<style>
+    .lang-ru [data-lang="en"], .lang-th [data-lang="en"],
+    .lang-en [data-lang="ru"], .lang-th [data-lang="ru"],
+    .lang-en [data-lang="th"], .lang-ru [data-lang="th"] {
+        display: none;
+    }
+</style>
+<script src="i18n.js"></script>
 <script>
         const SOCIAL = { instagram: 'https://instagram.com/TODO', telegram: 'https://t.me/TODO', whatsapp: 'https://wa.me/TODO' };
 
@@ -107,14 +115,7 @@
             if (links[2]) links[2].href = SOCIAL.whatsapp;
         }
 
-        function switchLanguage(lang) {
-            document.querySelectorAll('[data-lang]').forEach(el => {
-                if (el.dataset.lang === lang) {
-                    el.classList.remove('hidden');
-                } else {
-                    el.classList.add('hidden');
-                }
-            });
+        function syncStoryLangButtons(lang) {
             document.querySelectorAll('.lang-btn').forEach(btn => {
                 if (btn.dataset.langBtn === lang) {
                     btn.classList.add('text-secondary', 'border-b', 'border-secondary/40');
@@ -124,13 +125,20 @@
                     btn.classList.add('text-neutral-500');
                 }
             });
-            const lab = document.getElementById('story-locale-label');
-            if (lab) lab.textContent = lang.toUpperCase();
+        }
+
+        function switchLanguage(lang) {
+            window.shmPersistLocale(lang);
+            window.shmApplyLocale(lang);
+            syncStoryLangButtons(lang);
         }
 
         document.addEventListener('DOMContentLoaded', () => {
             syncStoryFooterSocial();
-            switchLanguage('en');
+            const s = window.shmReadStoredLocale();
+            const initial = s || 'en';
+            window.shmApplyLocale(initial);
+            syncStoryLangButtons(initial);
 
             const navToggle = document.getElementById('story-nav-toggle');
             const mobileNav = document.getElementById('story-mobile-nav');
@@ -201,9 +209,9 @@
 <div class="w-full max-w-container-max mx-auto relative px-4 py-6 sm:px-6 md:px-12 md:py-10">
 <div class="flex items-center justify-between w-full gap-2 min-h-[2.75rem]">
 <div class="hidden md:flex gap-8 items-center z-10">
-<a class="font-noto-serif tracking-[0.2em] uppercase text-xs text-neutral-400 hover:text-secondary transition-opacity duration-700 ease-in-out" href="index.html">The Collection</a>
-<a class="font-noto-serif tracking-[0.2em] uppercase text-xs text-neutral-400 hover:text-secondary transition-opacity duration-700 ease-in-out" href="bespoke.html">Bespoke</a>
-<a class="font-noto-serif tracking-[0.2em] uppercase text-xs text-secondary font-medium border-b border-secondary/40 pb-1 hover:text-amber-100 transition-opacity duration-700 ease-in-out" href="the-story.html">The Story</a>
+<a class="font-noto-serif tracking-[0.2em] uppercase text-xs text-neutral-400 hover:text-secondary transition-opacity duration-700 ease-in-out" href="index.html"><span data-i18n="nav_collection">The Collection</span></a>
+<a class="font-noto-serif tracking-[0.2em] uppercase text-xs text-neutral-400 hover:text-secondary transition-opacity duration-700 ease-in-out" href="bespoke.html"><span data-i18n="nav_bespoke">Bespoke</span></a>
+<a class="font-noto-serif tracking-[0.2em] uppercase text-xs text-secondary font-medium border-b border-secondary/40 pb-1 hover:text-amber-100 transition-opacity duration-700 ease-in-out" href="the-story.html"><span data-i18n="nav_story">The Story</span></a>
 </div>
 <button type="button" id="story-nav-toggle" class="md:hidden z-20 text-secondary hover:text-amber-100 rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-secondary/60" aria-expanded="false" aria-controls="story-mobile-nav" aria-label="Open menu">
 <span class="material-symbols-outlined text-2xl pointer-events-none">menu</span>
@@ -229,9 +237,9 @@
 </div>
 <div id="story-mobile-nav" class="hidden md:hidden border-t border-secondary/15 bg-neutral-950/95 backdrop-blur-xl" aria-hidden="true">
 <div class="flex flex-col py-4 gap-1 font-noto-serif text-[10px] tracking-widest uppercase">
-<a class="px-4 py-3 text-neutral-400 hover:text-secondary border-l-2 border-transparent" href="index.html">The Collection</a>
-<a class="px-4 py-3 text-neutral-400 hover:text-secondary border-l-2 border-transparent" href="bespoke.html">Bespoke</a>
-<a class="px-4 py-3 text-secondary font-medium border-l-2 border-secondary" href="the-story.html">The Story</a>
+<a class="px-4 py-3 text-neutral-400 hover:text-secondary border-l-2 border-transparent" href="index.html"><span data-i18n="nav_collection">The Collection</span></a>
+<a class="px-4 py-3 text-neutral-400 hover:text-secondary border-l-2 border-transparent" href="bespoke.html"><span data-i18n="nav_bespoke">Bespoke</span></a>
+<a class="px-4 py-3 text-secondary font-medium border-l-2 border-secondary" href="the-story.html"><span data-i18n="nav_story">The Story</span></a>
 </div>
 </div>
 </div>
@@ -246,27 +254,27 @@
 </div>
 <div class="z-10 text-center max-w-3xl flex flex-col items-center">
 <h1 class="font-headline-xl text-headline-xl text-primary mb-12 tracking-widest uppercase" data-lang="en">The Origin of Silence</h1>
-<h1 class="font-headline-xl text-headline-xl text-primary mb-12 tracking-widest uppercase hidden" data-lang="ru">Происхождение тишины</h1>
-<h1 class="font-headline-xl text-headline-xl text-primary mb-12 tracking-widest uppercase hidden" data-lang="th">จุดเริ่มต้นของความเงียบ</h1>
+<h1 class="font-headline-xl text-headline-xl text-primary mb-12 tracking-widest uppercase" data-lang="ru">Происхождение тишины</h1>
+<h1 class="font-headline-xl text-headline-xl text-primary mb-12 tracking-widest uppercase" data-lang="th">จุดเริ่มต้นของความเงียบ</h1>
 <div class="w-[1px] h-32 bg-outline/30"></div>
 </div>
 </section>
 <!-- Section 01: The Philosophy -->
 <section class="px-margin-edge max-w-container-max mx-auto w-full mb-section-padding flex flex-col items-center text-center">
 <h2 class="font-label-caps text-label-caps text-secondary mb-12" data-lang="en">I. The Philosophy</h2>
-<h2 class="font-label-caps text-label-caps text-secondary mb-12 hidden" data-lang="ru">I. Философия</h2>
-<h2 class="font-label-caps text-label-caps text-secondary mb-12 hidden" data-lang="th">I. ปรัชญา</h2>
+<h2 class="font-label-caps text-label-caps text-secondary mb-12" data-lang="ru">I. Философия</h2>
+<h2 class="font-label-caps text-label-caps text-secondary mb-12" data-lang="th">I. ปรัชญา</h2>
 <div class="max-w-2xl">
 <h3 class="font-headline-md text-headline-md text-on-surface mb-8" data-lang="en">Experience over consumption.</h3>
-<h3 class="font-headline-md text-headline-md text-on-surface mb-8 hidden" data-lang="ru">Опыт важнее потребления.</h3>
-<h3 class="font-headline-md text-headline-md text-on-surface mb-8 hidden" data-lang="th">ประสบการณ์เหนือการบริโภค.</h3>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-8" data-lang="ru">Опыт важнее потребления.</h3>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-8" data-lang="th">ประสบการณ์เหนือการบริโภค.</h3>
 <p class="font-body-lg text-body-lg text-on-surface-variant text-justify" data-lang="en">
                     In the quiet corners of Phuket, where the cacophony of the modern world fades into the rhythmic pulse of the Andaman Sea, a new paradigm of luxury is born. We do not create objects; we orchestrate moments. Every element is selected with excruciating precision, designed not to be possessed, but to be encountered. True luxury is silent. It demands focus.
                 </p>
-<p class="font-body-lg text-body-lg text-on-surface-variant text-justify hidden" data-lang="ru">
+<p class="font-body-lg text-body-lg text-on-surface-variant text-justify" data-lang="ru">
                     В тихих уголках Пхукета, где какофония современного мира растворяется в ритмичном пульсе Андаманского моря, рождается новая парадигма роскоши. Мы не создаем объекты; мы организуем моменты. Каждый элемент выбирается с мучительной точностью, созданный не для того, чтобы им владели, а чтобы с ним сталкивались. Истинная роскошь молчалива. Она требует концентрации.
                 </p>
-<p class="font-body-lg text-body-lg text-on-surface-variant text-justify hidden" data-lang="th">
+<p class="font-body-lg text-body-lg text-on-surface-variant text-justify" data-lang="th">
                     ในมุมอันเงียบสงบของภูเก็ต ที่ซึ่งเสียงอึกทึกของโลกสมัยใหม่เลือนลางหายไปในจังหวะการเต้นของทะเลอันดามัน กระบวนทัศน์ใหม่ของความหรูหราได้ถือกำเนิดขึ้น เราไม่ได้สร้างสิ่งของ เราบรรเลงช่วงเวลา ทุกองค์ประกอบได้รับการคัดเลือกด้วยความแม่นยำอย่างยิ่งยวด ออกแบบมาเพื่อไม่ได้ครอบครอง แต่เพื่อสัมผัส ความหรูหราที่แท้จริงคือความเงียบสงบ มันต้องการความมุ่งมั่น
                 </p>
 </div>
@@ -275,8 +283,8 @@
 <section class="px-margin-edge max-w-container-max mx-auto w-full mb-section-padding">
 <div class="flex flex-col items-center mb-24">
 <h2 class="font-label-caps text-label-caps text-secondary mb-4" data-lang="en">II. The Ritual of Creation</h2>
-<h2 class="font-label-caps text-label-caps text-secondary mb-4 hidden" data-lang="ru">II. Ритуал создания</h2>
-<h2 class="font-label-caps text-label-caps text-secondary mb-4 hidden" data-lang="th">II. พิธีกรรมแห่งการสร้างสรรค์</h2>
+<h2 class="font-label-caps text-label-caps text-secondary mb-4" data-lang="ru">II. Ритуал создания</h2>
+<h2 class="font-label-caps text-label-caps text-secondary mb-4" data-lang="th">II. พิธีกรรมแห่งการสร้างสรรค์</h2>
 <div class="w-12 h-[1px] bg-secondary-container"></div>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
@@ -286,11 +294,11 @@
 <img alt="" class="w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-1000" data-alt="Close up of manicured hands carefully selecting rare botanical ingredients or spices on a dark, textured slate surface, dramatic chiaroscuro lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGe1iYA5qxqMAjPdJWaFp8b_9k8-ZhBsULVo2wj4rD-KyRdAAWU0piRjO0IopQh7vnNV98ehId8tSfEQNjdCcoq-TdvlmeiEceQO-AAx8qO8PtXb70WuDYUsmoEIR67s8YJbhP0rUWS2CwAo3QyFyN1MS8GOwyXjhzcgAZaKnVkIZf44kKzBHQuiObRcExvPOXtabMVR_v1sBEo38WyNGq599dWLLrno4FEZ_TjM_j6AGglR8Fdskd-J_lb9nxjQ_Ittg9TBJLazk"/>
 </div>
 <span class="font-label-caps text-label-caps text-on-surface-variant mb-2" data-lang="en">01. Sourcing</span>
-<span class="font-label-caps text-label-caps text-on-surface-variant mb-2 hidden" data-lang="ru">01. Поиск</span>
-<span class="font-label-caps text-label-caps text-on-surface-variant mb-2 hidden" data-lang="th">01. การสรรหา</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant mb-2" data-lang="ru">01. Поиск</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant mb-2" data-lang="th">01. การสรรหา</span>
 <h4 class="font-headline-md text-headline-md text-on-surface mb-4" data-lang="en">The Earth's Quietest Offerings</h4>
-<h4 class="font-headline-md text-headline-md text-on-surface mb-4 hidden" data-lang="ru">Самые тихие дары Земли</h4>
-<h4 class="font-headline-md text-headline-md text-on-surface mb-4 hidden" data-lang="th">ข้อเสนอที่เงียบสงบที่สุดของโลก</h4>
+<h4 class="font-headline-md text-headline-md text-on-surface mb-4" data-lang="ru">Самые тихие дары Земли</h4>
+<h4 class="font-headline-md text-headline-md text-on-surface mb-4" data-lang="th">ข้อเสนอที่เงียบสงบที่สุดของโลก</h4>
 </div>
 <!-- Step 2 -->
 <div class="flex flex-col group md:mt-16">
@@ -298,25 +306,25 @@
 <img alt="" class="w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-1000" data-alt="Macro shot of dark liquid infusing with smoke or fine mist in an elegant glass vessel against a pitch black background, moody and elemental." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCgUYcS_OzwA9ixXgzcPnvpPW_-JaxMZa-FKhVz5pF98wsaZCSQnYGEDLZe7FuAclS0P-DF4YVFdB56zbzpWnou2Z-KZpx7qvulJmbZ0qhnJ3ggSkrwiPmz6DSNLO_tdrryaDuYldLHlXdSX_cjuRiOnwr8hf_N0OlYN8iri6Q8Goc4M9SX8_OsNFuQ1dtq_1ZKxg94fLh4r_tGhBPk5fKFOZWGzb02NTB_IYbPhOTTTyQmNA-76_Lq6iSpZuwr1GkYN2W7juO8Cgk"/>
 </div>
 <span class="font-label-caps text-label-caps text-on-surface-variant mb-2" data-lang="en">02. Infusion</span>
-<span class="font-label-caps text-label-caps text-on-surface-variant mb-2 hidden" data-lang="ru">02. Настаивание</span>
-<span class="font-label-caps text-label-caps text-on-surface-variant mb-2 hidden" data-lang="th">02. การชง</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant mb-2" data-lang="ru">02. Настаивание</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant mb-2" data-lang="th">02. การชง</span>
 <h4 class="font-headline-md text-headline-md text-on-surface mb-4" data-lang="en">Alchemical Precision</h4>
-<h4 class="font-headline-md text-headline-md text-on-surface mb-4 hidden" data-lang="ru">Алхимическая точность</h4>
-<h4 class="font-headline-md text-headline-md text-on-surface mb-4 hidden" data-lang="th">ความแม่นยำในการเล่นแร่แปรธาตุ</h4>
+<h4 class="font-headline-md text-headline-md text-on-surface mb-4" data-lang="ru">Алхимическая точность</h4>
+<h4 class="font-headline-md text-headline-md text-on-surface mb-4" data-lang="th">ความแม่นยำในการเล่นแร่แปรธาตุ</h4>
 </div>
 <!-- Step 3 -->
 <div class="flex flex-col group lg:mt-32">
 <div class="relative overflow-hidden aspect-[3/4] mb-8 border border-surface-container-high group-hover:border-secondary/30 transition-colors duration-700 bg-surface-container-lowest flex items-center justify-center">
 <span class="font-headline-lg text-headline-lg text-surface-container-high group-hover:text-secondary/10 transition-colors duration-1000" data-lang="en">Time</span>
-<span class="font-headline-lg text-headline-lg text-surface-container-high group-hover:text-secondary/10 transition-colors duration-1000 hidden" data-lang="ru">Время</span>
-<span class="font-headline-lg text-headline-lg text-surface-container-high group-hover:text-secondary/10 transition-colors duration-1000 hidden" data-lang="th">เวลา</span>
+<span class="font-headline-lg text-headline-lg text-surface-container-high group-hover:text-secondary/10 transition-colors duration-1000" data-lang="ru">Время</span>
+<span class="font-headline-lg text-headline-lg text-surface-container-high group-hover:text-secondary/10 transition-colors duration-1000" data-lang="th">เวลา</span>
 </div>
 <span class="font-label-caps text-label-caps text-on-surface-variant mb-2" data-lang="en">03. Maturation</span>
-<span class="font-label-caps text-label-caps text-on-surface-variant mb-2 hidden" data-lang="ru">03. Созревание</span>
-<span class="font-label-caps text-label-caps text-on-surface-variant mb-2 hidden" data-lang="th">03. การสุกงอม</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant mb-2" data-lang="ru">03. Созревание</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant mb-2" data-lang="th">03. การสุกงอม</span>
 <h4 class="font-headline-md text-headline-md text-on-surface mb-4" data-lang="en">The Discipline of Waiting</h4>
-<h4 class="font-headline-md text-headline-md text-on-surface mb-4 hidden" data-lang="ru">Дисциплина ожидания</h4>
-<h4 class="font-headline-md text-headline-md text-on-surface mb-4 hidden" data-lang="th">วินัยแห่งการรอคอย</h4>
+<h4 class="font-headline-md text-headline-md text-on-surface mb-4" data-lang="ru">Дисциплина ожидания</h4>
+<h4 class="font-headline-md text-headline-md text-on-surface mb-4" data-lang="th">วินัยแห่งการรอคอย</h4>
 </div>
 <!-- Step 4 -->
 <div class="flex flex-col group lg:mt-48">
@@ -324,11 +332,11 @@
 <img alt="" class="w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-1000" data-alt="A perfectly arranged, minimalist presentation of a luxury item on a dark podium, soft gradient spotlight, invoking a sense of reverence and finality." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAji9K8CyZHBOXXNXCITWmxE272x0Bx0zWLn939ynGPLowKgxRY0vGKkMYy5eZbJvW30OEKbZDZrWze_xbw_pgDM2N0LR5rqyorZV7ceP8ElDcV3gOjPKggvEiH3CGVhriD_r5sQL1VlRRUxokIoBbqt22Xv5mdiWhXkLpfQwNge8kis4L9P9CIotN2GOVKTgPOgNaX4xS2OR8nBnUjO5LAYt9G1JhN36YOMZwEm4nshK01OzLXDFW_DSZMAQsx-xh7gved1REqJ2g"/>
 </div>
 <span class="font-label-caps text-label-caps text-on-surface-variant mb-2" data-lang="en">04. Presentation</span>
-<span class="font-label-caps text-label-caps text-on-surface-variant mb-2 hidden" data-lang="ru">04. Презентация</span>
-<span class="font-label-caps text-label-caps text-on-surface-variant mb-2 hidden" data-lang="th">04. การนำเสนอ</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant mb-2" data-lang="ru">04. Презентация</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant mb-2" data-lang="th">04. การนำเสนอ</span>
 <h4 class="font-headline-md text-headline-md text-on-surface mb-4" data-lang="en">Form Meets Void</h4>
-<h4 class="font-headline-md text-headline-md text-on-surface mb-4 hidden" data-lang="ru">Форма встречает пустоту</h4>
-<h4 class="font-headline-md text-headline-md text-on-surface mb-4 hidden" data-lang="th">รูปแบบพบกับความว่างเปล่า</h4>
+<h4 class="font-headline-md text-headline-md text-on-surface mb-4" data-lang="ru">Форма встречает пустоту</h4>
+<h4 class="font-headline-md text-headline-md text-on-surface mb-4" data-lang="th">รูปแบบพบกับความว่างเปล่า</h4>
 </div>
 </div>
 </section>
@@ -336,18 +344,18 @@
 <section class="px-margin-edge max-w-container-max mx-auto w-full mb-section-padding grid grid-cols-1 md:grid-cols-12 gap-gutter items-center">
 <div class="md:col-span-5 md:col-start-2 order-2 md:order-1 flex flex-col justify-center">
 <h2 class="font-label-caps text-label-caps text-secondary mb-8" data-lang="en">III. The Handover</h2>
-<h2 class="font-label-caps text-label-caps text-secondary mb-8 hidden" data-lang="ru">III. Передача</h2>
-<h2 class="font-label-caps text-label-caps text-secondary mb-8 hidden" data-lang="th">III. การส่งมอบ</h2>
+<h2 class="font-label-caps text-label-caps text-secondary mb-8" data-lang="ru">III. Передача</h2>
+<h2 class="font-label-caps text-label-caps text-secondary mb-8" data-lang="th">III. การส่งมอบ</h2>
 <h3 class="font-headline-lg text-headline-lg text-on-surface mb-8" data-lang="en">A Ceremony of Transfer.</h3>
-<h3 class="font-headline-lg text-headline-lg text-on-surface mb-8 hidden" data-lang="ru">Церемония передачи.</h3>
-<h3 class="font-headline-lg text-headline-lg text-on-surface mb-8 hidden" data-lang="th">พิธีการส่งมอบ.</h3>
+<h3 class="font-headline-lg text-headline-lg text-on-surface mb-8" data-lang="ru">Церемония передачи.</h3>
+<h3 class="font-headline-lg text-headline-lg text-on-surface mb-8" data-lang="th">พิธีการส่งมอบ.</h3>
 <p class="font-body-md text-body-md text-on-surface-variant mb-8 text-justify" data-lang="en">
                     Delivery is not a transaction; it is a coronation. The artifact is presented in an environment stripped of distraction, allowing the recipient to absorb the weight of the creation. It is a silent acknowledgement between creator and patron—a shared understanding that true value is found in the unsaid.
                 </p>
-<p class="font-body-md text-body-md text-on-surface-variant mb-8 text-justify hidden" data-lang="ru">
+<p class="font-body-md text-body-md text-on-surface-variant mb-8 text-justify" data-lang="ru">
                     Доставка — это не транзакция; это коронация. Артефакт представлен в среде, лишенной отвлекающих факторов, что позволяет получателю впитать вес творения. Это молчаливое признание между создателем и покровителем — общее понимание того, что истинная ценность заключается в недосказанном.
                 </p>
-<p class="font-body-md text-body-md text-on-surface-variant mb-8 text-justify hidden" data-lang="th">
+<p class="font-body-md text-body-md text-on-surface-variant mb-8 text-justify" data-lang="th">
                     การส่งมอบไม่ใช่การทำธุรกรรม มันคือพิธีราชาภิเษก ชิ้นงานถูกนำเสนอในสภาพแวดล้อมที่ปราศจากสิ่งรบกวน ช่วยให้ผู้รับซึมซับน้ำหนักของการสร้างสรรค์ มันเป็นการยอมรับอย่างเงียบๆ ระหว่างผู้สร้างและผู้อุปถัมภ์—ความเข้าใจร่วมกันว่าคุณค่าที่แท้จริงพบได้ในสิ่งที่ไม่ได้พูดออกไป
                 </p>
 <div class="w-24 h-[1px] bg-secondary-container"></div>
@@ -359,9 +367,9 @@
 <!-- Final CTA -->
 <section class="flex flex-col items-center justify-center py-section-padding border-t border-surface-container-high mx-margin-edge">
 <h2 class="font-headline-md text-headline-md text-on-surface mb-12 text-center" data-lang="en">Step into the quiet.</h2>
-<h2 class="font-headline-md text-headline-md text-on-surface mb-12 text-center hidden" data-lang="ru">Шагните в тишину.</h2>
-<h2 class="font-headline-md text-headline-md text-on-surface mb-12 text-center hidden" data-lang="th">ก้าวเข้าสู่ความเงียบสงบ.</h2>
-<a class="border border-[#C5A059] text-[#C5A059] px-16 py-6 font-label-caps text-label-caps uppercase tracking-widest hover:bg-[#C5A059] hover:text-black transition-all duration-500 w-full max-w-md inline-flex justify-center items-center text-center" href="bespoke.html"><span data-lang="en">Join the Priority List</span><span data-lang="ru" class="hidden">Присоединиться к списку ожидания</span><span data-lang="th" class="hidden">เข้าร่วมรายชื่อผู้มีสิทธิ์ก่อน</span></a>
+<h2 class="font-headline-md text-headline-md text-on-surface mb-12 text-center" data-lang="ru">Шагните в тишину.</h2>
+<h2 class="font-headline-md text-headline-md text-on-surface mb-12 text-center" data-lang="th">ก้าวเข้าสู่ความเงียบสงบ.</h2>
+<a class="border border-[#C5A059] text-[#C5A059] px-16 py-6 font-label-caps text-label-caps uppercase tracking-widest hover:bg-[#C5A059] hover:text-black transition-all duration-500 w-full max-w-md inline-flex justify-center items-center text-center" href="bespoke.html"><span data-lang="en">Join the Priority List</span><span data-lang="ru">Присоединиться к списку ожидания</span><span data-lang="th">เข้าร่วมรายชื่อผู้มีสิทธิ์ก่อน</span></a>
 </section>
 </main>
 <!-- Footer -->
@@ -369,20 +377,16 @@
 <div class="text-secondary font-bold font-headline-md tracking-[0.4em] uppercase text-sm drop-shadow-[0_0_5px_rgba(233,193,118,0.3)]">
             SHMALEON
         </div>
-<div class="font-noto-serif text-[10px] tracking-widest uppercase text-neutral-500 text-center md:text-left">
-<span data-lang="en">© 2026 SHMALEON. BY INVITATION ONLY.</span>
-<span data-lang="ru" class="hidden">© 2026 SHMALEON. ТОЛЬКО ПО ПРИГЛАШЕНИЮ.</span>
-<span data-lang="th" class="hidden">© 2026 SHMALEON. โดยคำเชิญเท่านั้น</span>
-        </div>
+<div class="font-noto-serif text-[10px] tracking-widest uppercase text-neutral-500 text-center md:text-left"><span data-i18n="footer_copyright">© 2026 SHMALEON. BY INVITATION ONLY.</span></div>
 <div class="flex flex-wrap gap-4 md:gap-6 font-noto-serif text-[10px] tracking-widest uppercase justify-center md:justify-start" id="footer-social-story">
 <a class="text-neutral-500 hover:text-secondary transition-colors duration-500" href="https://instagram.com/TODO" rel="noopener noreferrer" target="_blank">Instagram</a>
 <a class="text-neutral-500 hover:text-secondary transition-colors duration-500" href="https://t.me/TODO" rel="noopener noreferrer" target="_blank">Telegram</a>
 <a class="text-neutral-500 hover:text-secondary transition-colors duration-500" href="https://wa.me/TODO" rel="noopener noreferrer" target="_blank">WhatsApp</a>
 </div>
 <div class="flex gap-6 font-noto-serif text-[10px] tracking-widest uppercase">
-<a class="text-neutral-500 hover:text-secondary transition-colors duration-500" href="#">Legal</a>
-<a class="text-neutral-500 hover:text-secondary transition-colors duration-500" href="#">Privacy</a>
-<a class="text-neutral-500 hover:text-secondary transition-colors duration-500" href="#">Compliance</a>
+<a class="text-neutral-500 hover:text-secondary transition-colors duration-500" href="#"><span data-i18n="footer_legal">Legal</span></a>
+<a class="text-neutral-500 hover:text-secondary transition-colors duration-500" href="#"><span data-i18n="footer_privacy">Privacy</span></a>
+<a class="text-neutral-500 hover:text-secondary transition-colors duration-500" href="#"><span data-i18n="footer_compliance">Compliance</span></a>
 </div>
 </footer>
 </body></html>
