@@ -225,7 +225,7 @@
   function shmSyncLangButtons(lang) {
     lang = shmNormalizeLang(lang);
     document.querySelectorAll('.lang-btn').forEach(function (btn) {
-      var target = btn.getAttribute('data-target-lang') || btn.getAttribute('data-lang-btn');
+      var target = btn.getAttribute('data-target-lang');
       if (target === lang) {
         btn.classList.add('text-secondary');
         btn.classList.remove('text-neutral-500');
@@ -259,15 +259,9 @@
 
     shmSyncLangButtons(lang);
 
-    var cur = document.getElementById('current-lang');
-    if (cur) cur.textContent = lang.toUpperCase();
     document.querySelectorAll('[data-shm-locale-label]').forEach(function (el) {
       el.textContent = lang.toUpperCase();
     });
-    var idxLab = document.getElementById('index-locale-label');
-    if (idxLab) idxLab.textContent = lang.toUpperCase();
-    var storyLab = document.getElementById('story-locale-label');
-    if (storyLab) storyLab.textContent = lang.toUpperCase();
 
     try {
       if (typeof window.dispatchEvent === 'function') {

@@ -27,8 +27,8 @@ Ship a production-credible static site: **`index.html` as home** (collection exp
 - [x] **Phase 14: A11y follow-up** — Skip link; `prefers-reduced-motion` for any future motion; audit focus order after hero CTA fix. (completed 2026-04-27)
 - [x] **Phase 15: Media hardening** — Self-host or stabilize image URLs; width/height hints to reduce CLS. (completed 2026-04-27)
 - [x] **Phase 16: Typography pass (optional)** — Body type with more character than Inter while keeping Noto for display. (completed 2026-04-27)
-- [ ] **Phase 17: Legal page density** — Tighter mobile rhythm on draft legal/privacy/compliance if needed after content finalization.
-- [ ] **Phase 18: Dead class cleanup** — Remove or implement utility classes (e.g. legacy `slow fade`) project-wide.
+- [x] **Phase 17: Legal page density** — Tighter mobile rhythm on draft legal/privacy/compliance if needed after content finalization. *(completed 2026-04-27)*
+- [x] **Phase 18: Dead class cleanup** — Remove or implement utility classes (e.g. legacy `slow fade`) project-wide. *(completed 2026-04-27)*
 
 ## Phase Details
 
@@ -368,7 +368,7 @@ Plans:
 
 1. Mobile legal pages read without excessive whitespace runaway; class/HTML tweaks as needed.
 
-**Plans**: 0 plans
+**Plans**: 1 plan (`17-01-PLAN.md`) — complete 2026-04-27
 
 **UI hint**: yes
 
@@ -384,7 +384,7 @@ Plans:
 
 1. No unused or misleading utility classes; JS/CSS match actual behavior.
 
-**Plans**: 0 plans
+**Plans**: 1 plan (`18-01-PLAN.md`) — complete 2026-04-27
 
 **UI hint**: partial
 
