@@ -14,10 +14,11 @@ Deliver a cohesive, trustworthy, visually premium web experience that matches th
 
 **Target features:**
 
-- Entry page and consistent primary navigation across Collection, Bespoke, and Story
-- EN/RU/TH coherence (per-page contracts documented where mixed) and accessibility hardening
-- Legal, privacy, and compliance destinations with review notes captured in planning
-- Deploy documentation and distinct page titles, meta descriptions, and Open Graph basics
+- **`the-collection.html` as canonical home** with root redirect; primary CTAs (e.g. join priority list) route to **Bespoke**
+- **Mobile-first chrome:** burger nav, collapsed locale picker, no decorative commerce icons; overlap/reflow audit
+- **Social:** Instagram, Telegram, WhatsApp in footer; **Bespoke** gains channel-based contact capture (TG / IG / WA / email) with validation
+- Full **EN → RU/TH** coverage, **browser language detection** + stored override, then accessibility and trust pages
+- Deploy documentation, **SEO** (canonical, meta/OG), and launch checks
 
 ## Requirements
 
@@ -27,11 +28,14 @@ Deliver a cohesive, trustworthy, visually premium web experience that matches th
 
 ### Active
 
-- [ ] Cohesive information architecture: clear entry, working cross-links between the three pages, and no placeholder-only navigation.
+- [ ] Cohesive information architecture: **collection as home**, working cross-links between the three pages, priority CTA to Bespoke, and no placeholder-only navigation.
+- [ ] **Mobile-first** global chrome: burger nav, collapsed language control, no faux commerce icons; fix overlapping layouts on small screens.
+- [ ] **Social links** (Instagram, Telegram, WhatsApp) in footer; **bespoke** contact capture with channel-specific validation.
+- [ ] **Locale:** full RU/TH against EN source; **auto-detect** browser language on first visit with stored user override.
 - [ ] Consistent multilingual product and navigation terminology across pages.
 - [ ] Accessible, meaningful text alternatives for imagery and keyboard-reachable primary actions.
 - [ ] Compliance-oriented placeholders or real pages for Legal, Privacy, and product-adjacent disclaimers where required.
-- [ ] Launch-ready static hosting, basic SEO/social metadata, and documented deploy steps.
+- [ ] Launch-ready static hosting, **technical SEO** (canonical, titles/descriptions/OG), and documented deploy steps.
 
 ### Out of Scope
 
@@ -41,7 +45,7 @@ Deliver a cohesive, trustworthy, visually premium web experience that matches th
 ## Context
 
 - **Stack:** Plain HTML, Tailwind via CDN, Google Fonts, Material Symbols, remote hero imagery (Google CDN URLs).
-- **Pages:** `the-collection.html`, `bespoke.html`, `the-story.html` (no `index.html` yet).
+- **Pages:** `the-collection.html` (canonical home), `bespoke.html`, `the-story.html`; **`index.html`** should redirect to collection per REQUIREMENTS.
 - **Brand:** Nav and titles use **SHMALEON**; repository folder name may differ (`smaleon-landing`).
 - **Footers** currently show © 2024; verify intentional vs update for current year.
 
@@ -79,4 +83,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-04-27 — milestone v1.1 started; execution baseline reset*
+*Last updated: 2026-04-27 — milestone v1.1; IA, mobile chrome, i18n, social, bespoke contact, SEO reflected in REQUIREMENTS*
