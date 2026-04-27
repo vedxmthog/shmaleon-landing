@@ -62,9 +62,9 @@ Plans:
 
 Plans:
 
-- [ ] 02-01: **Unify i18n + full RU/TH** — Consolidate `data-lang` / `data-i18n` / bespoke dictionary; translate all strings including contact block and chrome.
-- [ ] 02-02: **Auto-locale + persistence** — Implement `navigator.languages` mapping, storage key, and edge cases (private mode, missing storage).
-- [ ] 02-03: **A11y & form polish** — Heading hierarchy, focus rings, `aria-expanded` on burger/locale, live validation messaging for FORM-01.
+- [x] 02-01: **Unify i18n + full RU/TH** — Consolidate `data-lang` / `data-i18n` / bespoke dictionary; translate all strings including contact block and chrome.
+- [x] 02-02: **Auto-locale + persistence** — Implement `navigator.languages` mapping, storage key, and edge cases (private mode, missing storage).
+- [x] 02-03: **A11y & form polish** — Heading hierarchy, focus rings, `aria-expanded` on burger/locale, live validation messaging for FORM-01.
 
 **UI hint**: yes
 
