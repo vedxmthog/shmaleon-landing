@@ -11,6 +11,7 @@
       nav_collection: 'The Collection',
       nav_bespoke: 'Bespoke',
       nav_story: 'The Story',
+      skip_to_main: 'Skip to main content',
       hero_title: 'Configure Your Artifact',
       hero_subtitle:
         'A bespoke expression of controlled desire. Shape the elements to your singular intent.',
@@ -66,6 +67,7 @@
       nav_collection: 'Коллекция',
       nav_bespoke: 'Bespoke',
       nav_story: 'История',
+      skip_to_main: 'К основному содержанию',
       hero_title: 'Соберите свой артефакт',
       hero_subtitle:
         'Bespoke-ритуал сдержанного желания. Соедините геометрию, интенсивность и деталь в одном намерении.',
@@ -121,6 +123,7 @@
       nav_collection: 'คอลเลกชัน',
       nav_bespoke: 'Bespoke',
       nav_story: 'เรื่องราว',
+      skip_to_main: 'ข้ามไปยังเนื้อหาหลัก',
       hero_title: 'ออกแบบอาร์ติแฟกต์ของคุณ',
       hero_subtitle:
         'จังหวะแห่งความต้องการที่รู้จักกลั้น จับคู่รูปทรง ระดับสารสกัด และรายละเอียดให้สอดคล้องกับคุณเท่านั้น',
