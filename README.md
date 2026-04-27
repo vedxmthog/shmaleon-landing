@@ -24,5 +24,5 @@ Full hosting steps, local verify, and **`__CANONICAL_ORIGIN__`** find-replace be
 
 **Footer social (Instagram, Telegram, WhatsApp):** edit **[`social-urls.js`](social-urls.js)** only — it is the single source of truth:
 
-- `window.SHM_SOCIAL_ENABLED` — set to `true` to show the three-link footer block; set to `false` to hide it until public handles are ready.
-- `window.SHMALEON_SOCIAL` — the three `https://` profile URLs, aligned with the brand. Do not reintroduce per-page `SOCIAL` object literals; pages load this file after `i18n.js`.
+- `window.SHM_SOCIAL_ENABLED` — set to `true` to show the footer social icon bar; set to `false` to hide it.
+- `window.SHMALEON_SOCIAL` — the three `https://` targets (see **TODO** in that file to replace generic placeholders with final profile URLs). Pages load this file after `i18n.js`; per-page scripts only sync `href` from the global.
