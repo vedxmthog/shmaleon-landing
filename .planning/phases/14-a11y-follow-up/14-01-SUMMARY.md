@@ -69,7 +69,7 @@ completed: 2026-04-27
 2. **shm-skip-link + reduced-motion CSS** — `c64396d` (feat)
 3. **Skip link + main id on six pages** — `85b462a` (feat)
 4. **Alt text sync index + story** — `a9119c4` (feat)
-5. **Keyboard verification doc** — (this commit)
+5. **Keyboard verification doc** — `5a80445` (docs)
 
 ## Deviations from Plan
 
