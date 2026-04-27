@@ -298,7 +298,11 @@ Plans:
 
 1. THB line meaning is unambiguous in EN, RU, and TH; same semantic intent in each locale.
 
-**Plans**: 0 plans
+**Plans**: 1 plan (`13-01-PLAN.md`)
+
+Plans:
+
+- [ ] 13-01: `index_scarcity_price_qualifier` in `i18n.js` + `data-i18n` under `15,000 THB` on `index.html`; mirror `GLOSSARY.md`
 
 **UI hint**: yes
 
