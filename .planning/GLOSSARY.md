@@ -30,6 +30,10 @@ Canonical strings for `i18n.js` `SHM_TRANSLATIONS`. Update this table first, the
 | btn_submit | INITIATE REQUEST | ИНИЦИИРОВАТЬ ЗАПРОС | เริ่มส่งคำขอ |
 | step4_title | Concierge Contact | Контакт консьержа | ติดต่อคอนเซียร์จ |
 | contact_channel_label | Channel | Канал | ช่องทาง |
+| channel_option_telegram | Telegram | Telegram | Telegram |
+| channel_option_instagram | Instagram | Instagram | Instagram |
+| channel_option_whatsapp | WhatsApp | WhatsApp | WhatsApp |
+| channel_option_email | Email | Эл. почта | อีเมล |
 | contact_label_telegram | Telegram username or link | Имя пользователя или ссылка Telegram | ชื่อผู้ใช้หรือลิงก์ Telegram |
 | contact_label_instagram | Instagram handle | Имя в Instagram | บัญชี Instagram |
 | contact_label_whatsapp | WhatsApp number (with country code) | Номер WhatsApp (с кодом страны) | หมายเลข WhatsApp (รวมรหัสประเทศ) |
