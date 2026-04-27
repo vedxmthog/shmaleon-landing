@@ -10,7 +10,7 @@ Ship a production-credible static site: **`index.html` as home** (collection exp
 
 - [ ] **Phase 1: Site shell & navigation** — Home IA, mobile-first chrome, social footer, bespoke contact UI
 - [ ] **Phase 2: Content, i18n & accessibility** — Full translations, auto-locale + persistence, glossary, a11y/form polish
-- [ ] **Phase 3: Trust & compliance** — Legal destinations and copy review hooks
+- [x] **Phase 3: Trust & compliance** — Legal destinations and copy review hooks *(skipped 2026-04-27 — deferred; not in current scope)*
 - [ ] **Phase 4: Launch readiness** — Deploy documentation, SEO (canonical, meta/OG, optional JSON-LD)
 
 ### v1.2 — UI/UX polish (backlog)
@@ -25,7 +25,7 @@ Ship a production-credible static site: **`index.html` as home** (collection exp
 - [x] **Phase 12: Bespoke `<select>` i18n** — Channel option labels via `i18n` keys for EN/RU/TH. (completed 2026-04-27)
 - [x] **Phase 13: Price clarity** — One line of microcopy under `15,000 THB` (per unit / from / inclusive) in all locales. (completed 2026-04-27)
 - [x] **Phase 14: A11y follow-up** — Skip link; `prefers-reduced-motion` for any future motion; audit focus order after hero CTA fix. (completed 2026-04-27)
-- [ ] **Phase 15: Media hardening** — Self-host or stabilize image URLs; width/height hints to reduce CLS.
+- [x] **Phase 15: Media hardening** — Self-host or stabilize image URLs; width/height hints to reduce CLS. (completed 2026-04-27)
 - [ ] **Phase 16: Typography pass (optional)** — Body type with more character than Inter while keeping Noto for display.
 - [ ] **Phase 17: Legal page density** — Tighter mobile rhythm on draft legal/privacy/compliance if needed after content finalization.
 - [ ] **Phase 18: Dead class cleanup** — Remove or implement utility classes (e.g. legacy `slow fade`) project-wide.
@@ -89,9 +89,11 @@ Plans:
 
 **Goal**: Legal and product-adjacent claims have a defensible public footprint.
 
+**Status (2026-04-27):** **Skipped / deferred** — no TRUST-01 pages or TRUST-02 memo in this pass; may reopen when counsel or launch requires it.
+
 **Depends on**: Phase 2
 
-**Requirements**: TRUST-01, TRUST-02
+**Requirements**: TRUST-01, TRUST-02 *(not executed this cycle)*
 
 **Success Criteria** (what must be TRUE):
 
@@ -102,7 +104,7 @@ Plans:
 
 Plans:
 
-- [ ] 03-01: Implement trust pages and tie footers; capture compliance review notes
+- [x] 03-01: Implement trust pages and tie footers; capture compliance review notes *(skipped — see `03-01-SUMMARY.md`)*
 
 **UI hint**: yes
 
@@ -110,7 +112,7 @@ Plans:
 
 **Goal**: The site can be handed to hosting with operational clarity and **search/social** hygiene.
 
-**Depends on**: Phase 3
+**Depends on**: Phase 2 *(Phase 3 trust work deferred)*
 
 **Requirements**: REL-01, REL-02, SEO-01
 
@@ -237,7 +239,7 @@ Plans:
 
 **Goal**: Single voice for product, potency, and dose-related language across `index.html`, `the-story.html`, and `bespoke.html` in every locale; align with TRUST-02 counsel posture; record review outcome or alignment notes in `.planning/`.
 
-**Depends on**: Phase 2; stacks on Phase 3 (trust memos) where present.
+**Depends on**: Phase 2; stacks on Phase 3 trust memos if/when that phase runs.
 
 **Requirements**: TRUST-02 (copy alignment and review record)
 
@@ -358,7 +360,7 @@ Plans:
 
 **Goal**: Tighter mobile rhythm on draft legal/privacy/compliance if needed after content finalization.
 
-**Depends on**: Phase 3
+**Depends on**: Trust/legal HTML in place *(Phase 3 deferred until then)*
 
 **Requirements**: TRUST-01
 
@@ -388,12 +390,12 @@ Plans:
 
 ## Progress
 
-**Execution order:** 1 → 2 → 3 → 4  
+**Execution order:** 1 → 2 → ~~3~~ (deferred) → 4  
 **Last reset:** 2026-04-27 (milestone v1.1)
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Site shell & navigation | 0/3 | Not started | — |
 | 2. Content, i18n & accessibility | 0/3 | Not started | — |
-| 3. Trust & compliance | 0/1 | Not started | — |
+| 3. Trust & compliance | —/1 | Skipped (deferred) | 2026-04-27 |
 | 4. Launch readiness | 0/1 | Not started | — |

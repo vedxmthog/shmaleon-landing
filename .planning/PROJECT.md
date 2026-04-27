@@ -30,6 +30,7 @@ Deliver a cohesive, trustworthy, visually premium web experience that matches th
 - **Home hero CTAs:** primary **Inquire** → `bespoke.html`, secondary **Enter** → `the-story.html`, with EN/RU/TH labels — **Phase 08 (2026-04-27)**.
 - **Accent tokens on public HTML:** priority-list / scarcity-style CTAs use design-token classes (`secondary`, `tertiary-container`); no ad-hoc gold hex in shipped `*.html` — **Phase 11 (2026-04-27)**.
 - **A11y follow-up:** localized skip links, `main-content` landmark, `prefers-reduced-motion`, informative alts on index/story catalog imagery, keyboard verification checklist — **Phase 14 (2026-04-27)**.
+- **Media hardening (hero / catalogue / story):** self-hosted `media/shm-*.jpg` with provenance README; relative paths; intrinsic `width`/`height`, `decoding="async"`, below-the-fold `loading="lazy"`, concise alts (A11Y-01 for in-scope images) — **Phase 15 (2026-04-27)**.
 
 ### Active
 
@@ -45,7 +46,7 @@ Deliver a cohesive, trustworthy, visually premium web experience that matches th
 
 ## Context
 
-- **Stack:** Plain HTML, Tailwind via CDN, Google Fonts, Material Symbols, remote hero imagery (Google CDN URLs).
+- **Stack:** Plain HTML, Tailwind via CDN, Google Fonts, Material Symbols; **hero/catalogue/story** imagery is **self-hosted** under `media/` (Phase 15); fonts/CDN scripts unchanged.
 - **Pages:** **`index.html`** (home / collection), `bespoke.html`, `the-story.html`; **`the-collection.html`** is a redirect stub only.
 - **Brand:** Nav and titles use **SHMALEON**; repository folder name may differ (`smaleon-landing`).
 - **Footers** currently show © 2024; verify intentional vs update for current year.
@@ -54,7 +55,7 @@ Deliver a cohesive, trustworthy, visually premium web experience that matches th
 
 - **Regulatory:** Cannabis-related claims and marketing are jurisdiction-sensitive (e.g. Thailand). Public copy and structure should be reviewed by qualified counsel before go-live.
 - **Technical:** Static-first; avoid introducing build tooling unless the team commits to it.
-- **Content:** Third-party image URLs create dependency and longevity risk.
+- **Content:** Third-party **font/script** CDNs remain; main marketing **photos** on index / bespoke / the-story are local assets under `media/`.
 
 ## Key Decisions
 
@@ -84,4 +85,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-04-27 — Phase 14 complete; skip link, reduced-motion, and alts validated in PROJECT*
+*Last updated: 2026-04-27 — Phase 15 complete; self-hosted `media/` imagery and A11Y image attributes in PROJECT context*
