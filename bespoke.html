@@ -280,10 +280,10 @@
 <div class="space-y-6 max-w-xl">
 <label class="font-label-caps text-label-caps text-on-surface-variant block" data-i18n="contact_channel_label" for="contact-channel">Channel</label>
 <select class="w-full bg-surface-container-low border border-outline text-on-surface font-body-md py-3 px-4 rounded focus:ring-0 focus:border-secondary" id="contact-channel" name="contact_channel">
-<option value="telegram">Telegram</option>
-<option value="instagram">Instagram</option>
-<option value="whatsapp">WhatsApp</option>
-<option value="email">Email</option>
+<option value="telegram" data-i18n="channel_option_telegram">Telegram</option>
+<option value="instagram" data-i18n="channel_option_instagram">Instagram</option>
+<option value="whatsapp" data-i18n="channel_option_whatsapp">WhatsApp</option>
+<option value="email" data-i18n="channel_option_email">Email</option>
 </select>
 <label class="font-label-caps text-label-caps text-on-surface-variant block" id="contact-label" for="contact-value">Telegram username or link</label>
 <input class="w-full bg-transparent border-0 border-b border-outline text-on-surface font-body-md py-4 px-0 focus:ring-0 focus:border-secondary" id="contact-value" name="contact_value" type="text" autocomplete="off" aria-describedby="contact-error"/>
@@ -415,6 +415,8 @@
             input.placeholder = '@username';
         }
     }
+
+    window.addEventListener('shm:locale', () => applyContactChannel());
 
     function setLanguage(lang) {
         window.shmPersistLocale(lang);
