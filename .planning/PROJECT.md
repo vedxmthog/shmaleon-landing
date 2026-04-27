@@ -27,6 +27,7 @@ Deliver a cohesive, trustworthy, visually premium web experience that matches th
 - Cohesive information architecture: **collection as home**, cross-links, priority CTA to Bespoke — **Phase 01 (2026-04-27)**.
 - **Mobile-first** global chrome: burger nav, collapsed/click language control, no faux commerce icons; small-screen padding — **Phase 01**.
 - **Social links** (Instagram, Telegram, WhatsApp) in footer; **bespoke** channel-based contact capture with client-side hand-off — **Phase 01** (replace TODO URLs/email before launch).
+- **Home hero CTAs:** primary **Inquire** → `bespoke.html`, secondary **Enter** → `the-story.html`, with EN/RU/TH labels — **Phase 08 (2026-04-27)**.
 
 ### Active
 
@@ -82,4 +83,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-04-27 — Phase 01 complete; validated IA, mobile chrome, social + bespoke contact in PROJECT*
+*Last updated: 2026-04-27 — Phase 08 complete; hero CTAs validated in PROJECT*

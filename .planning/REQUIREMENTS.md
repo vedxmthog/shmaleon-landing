@@ -32,7 +32,7 @@
 
 ### Hero & home CTAs (v1.2)
 
-- [ ] **HERO-CTA-01**: On the collection home (`index.html`) hero, **Inquire** / **Enter** (and translated equivalents) use real targets—`bespoke.html`, `the-story.html`, in-page section IDs, or `mailto:` / social deep links. No `href="#"` and no click handlers that only prevent default without navigation.
+- [x] **HERO-CTA-01**: On the collection home (`index.html`) hero, **Inquire** / **Enter** (and translated equivalents) use real targets—`bespoke.html`, `the-story.html`, in-page section IDs, or `mailto:` / social deep links. No `href="#"` and no click handlers that only prevent default without navigation.
 
 ### Social & discovery
 
@@ -97,7 +97,7 @@
 | REL-01 | Phase 4 | Pending |
 | REL-02 | Phase 4 | Pending |
 | SEO-01 | Phase 4 | Pending |
-| HERO-CTA-01 | Phase 8 | Pending |
+| HERO-CTA-01 | Phase 8 | Complete |
 
 **Coverage:**
 

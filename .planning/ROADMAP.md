@@ -208,9 +208,171 @@ Plans:
 
 Plans:
 
-- [ ] 08-01: Wire hero CTAs to real destinations; verify i18n labels unchanged
+- [x] 08-01: Wire hero CTAs to real destinations; verify i18n labels unchanged
 
 **UI hint**: yes
+
+### Phase 9: Production social URLs
+
+**Goal**: Replace `TODO` placeholder social deep links in the static site with final production Instagram, Telegram, and WhatsApp targets **or** hide the social row until the brand finalizes handles—so users never see dead `instagram.com/TODO`–style links in a production deploy.
+
+**Depends on**: Phase 5 (footer chrome and locale are stable)
+
+**Requirements**: SOCIAL-01 (production fulfillment)
+
+**Success Criteria** (what must be TRUE):
+
+1. Every public page that shows footer social links either uses **ship-ready URLs** in one documented edit location or the three links are **omitted** (or visually suppressed) with a code comment and `.planning` note when URLs are TBD.
+2. `rg 'TODO' --glob '*.html'` (and key JS) shows **no** `instagram.com/TODO`, `t.me/TODO`, or `wa.me/TODO` (unless explicitly documented as a deliberate staging exception).
+
+**Plans**: 0 plans
+
+**UI hint**: no (link targets only; layout unchanged)
+
+### Phase 10: Claims & counsel alignment
+
+**Goal**: Single voice for product, potency, and dose-related language across `index.html`, `the-story.html`, and `bespoke.html` in every locale; align with TRUST-02 counsel posture; record review outcome or alignment notes in `.planning/`.
+
+**Depends on**: Phase 2; stacks on Phase 3 (trust memos) where present.
+
+**Requirements**: TRUST-02 (copy alignment and review record)
+
+**Success Criteria** (what must be TRUE):
+
+1. No contradictory product/dose/potency phrasing between the three pages for EN, RU, and TH (editorial pass + short `.planning/` note listing decisions).
+2. `.planning/` holds an updated **review / alignment** artifact (e.g. memo or addendum) tied to this pass—not placeholder-only if counsel has ruled.
+
+**Plans**: 0 plans
+
+**UI hint**: yes (copy and microcopy)
+
+### Phase 11: Accent unification
+
+**Goal**: Replace ad-hoc gold (e.g. Story CTA `#C5A059`) with design-token `secondary` everywhere.
+
+**Depends on**: Phase 6
+
+**Requirements**: (visual consistency — site-wide)
+
+**Success Criteria** (what must be TRUE):
+
+1. No stray hex gold outside the agreed token; Story CTA and peers use `secondary` (or shared CSS variable) consistently.
+
+**Plans**: 0 plans
+
+**UI hint**: yes
+
+### Phase 12: Bespoke `<select>` i18n
+
+**Goal**: Channel option labels in bespoke flow use `i18n` keys for EN/RU/TH.
+
+**Depends on**: Phase 2
+
+**Requirements**: I18N-01, I18N-05
+
+**Success Criteria** (what must be TRUE):
+
+1. Channel `<select>` options fully translated; no hard-coded English-only option text.
+
+**Plans**: 0 plans
+
+**UI hint**: yes
+
+### Phase 13: Price clarity
+
+**Goal**: One line of microcopy under `15,000 THB` (per unit / from / inclusive) in all locales.
+
+**Depends on**: Phase 2
+
+**Requirements**: (commerce-adjacent clarity)
+
+**Success Criteria** (what must be TRUE):
+
+1. THB line meaning is unambiguous in EN, RU, and TH; same semantic intent in each locale.
+
+**Plans**: 0 plans
+
+**UI hint**: yes
+
+### Phase 14: A11y follow-up
+
+**Goal**: Skip link; `prefers-reduced-motion` for any future motion; audit focus order after hero CTA fix.
+
+**Depends on**: Phase 8
+
+**Requirements**: A11Y-01, A11Y-02
+
+**Success Criteria** (what must be TRUE):
+
+1. Documented pass: skip link, reduced-motion where applicable, focus order re-checked for hero + nav.
+
+**Plans**: 0 plans
+
+**UI hint**: yes
+
+### Phase 15: Media hardening
+
+**Goal**: Self-host or stabilize image URLs; width/height hints to reduce CLS.
+
+**Depends on**: Phase 6
+
+**Requirements**: A11Y-01 (image stability)
+
+**Success Criteria** (what must be TRUE):
+
+1. No hot-linked fragile URLs in hero/catalog without fallback; key images have dimensions or stable layout.
+
+**Plans**: 0 plans
+
+**UI hint**: partial (images)
+
+### Phase 16: Typography pass (optional)
+
+**Goal**: Body type with more character than Inter while keeping Noto for display.
+
+**Depends on**: Phase 4
+
+**Requirements**: (optional polish)
+
+**Success Criteria** (what must be TRUE):
+
+1. If executed: document font stack change and check CLS/readability; if skipped: N/A.
+
+**Plans**: 0 plans
+
+**UI hint**: yes
+
+### Phase 17: Legal page density
+
+**Goal**: Tighter mobile rhythm on draft legal/privacy/compliance if needed after content finalization.
+
+**Depends on**: Phase 3
+
+**Requirements**: TRUST-01
+
+**Success Criteria** (what must be TRUE):
+
+1. Mobile legal pages read without excessive whitespace runaway; class/HTML tweaks as needed.
+
+**Plans**: 0 plans
+
+**UI hint**: yes
+
+### Phase 18: Dead class cleanup
+
+**Goal**: Remove or implement utility classes (e.g. legacy `slow fade`) project-wide.
+
+**Depends on**: Phase 5
+
+**Requirements**: (hygiene)
+
+**Success Criteria** (what must be TRUE):
+
+1. No unused or misleading utility classes; JS/CSS match actual behavior.
+
+**Plans**: 0 plans
+
+**UI hint**: partial
 
 ## Progress
 

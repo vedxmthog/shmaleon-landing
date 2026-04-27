@@ -4,14 +4,14 @@ milestone: v1.2
 milestone_name: — UI/UX polish
 status: executing
 stopped_at: Milestone v1.1 initialized — begin with `/gsd-discuss-phase 1` or `/gsd-plan-phase 1`
-last_updated: "2026-04-27T04:31:41.908Z"
-last_activity: 2026-04-27 -- Phase 8 planning complete
+last_updated: "2026-04-27T04:34:05.382Z"
+last_activity: 2026-04-27
 progress:
-  total_phases: 8
-  completed_phases: 3
+  total_phases: 9
+  completed_phases: 4
   total_plans: 9
-  completed_plans: 7
-  percent: 78
+  completed_plans: 8
+  percent: 89
 ---
 
 # Project State
@@ -21,14 +21,14 @@ progress:
 See: `.planning/PROJECT.md` (updated 2026-04-27)
 
 **Core value:** Cohesive, trustworthy, premium static experience aligned with brand and compliance reality.  
-**Current focus:** Phase 04 — launch-readiness
+**Current focus:** Phase 08 — home-hero-cta-wiring
 
 ## Current Position
 
-Phase: 04
+Phase: 09
 Plan: Not started
-Status: Ready to execute
-Last activity: 2026-04-27 -- Phase 8 planning complete
+Status: Executing Phase 08
+Last activity: 2026-04-27
 
 Progress: [░░░░░░░░░░] 0%
 
@@ -36,7 +36,7 @@ Progress: [░░░░░░░░░░] 0%
 
 **Velocity:**
 
-- Total plans completed: 7
+- Total plans completed: 8
 - Average duration: —
 - Total execution time: 0 hours
 
@@ -48,6 +48,7 @@ Progress: [░░░░░░░░░░] 0%
 | 01 | 3 | - | - |
 | 02 | 3 | - | - |
 | 04 | 1 | - | - |
+| 08 | 1 | - | - |
 
 **Recent trend:**
 
