@@ -19,7 +19,7 @@ Ship a production-credible static site: **`index.html` as home** (collection exp
 - [x] **Phase 6: Responsive & overflow pass** — `min-w-0` / `overflow-x` safety; hero and product image heights scale on small viewports; responsive type for hero and story titles; horizontal padding `px-4 sm:px-6` before `margin-edge`; bespoke step headers and intensity cards avoid clipping.
 - [x] **Phase 7: Bespoke hero full-bleed** — Hero background image spans full viewport width (no `max-w-container-max` gutter on the media block); form content remains in `max-w-4xl` with responsive padding.
 - [ ] **Phase 8: Home hero CTA wiring** — “Inquire” / “Enter” map to real destinations (`bespoke.html`, story, scroll target, or mailto); no dead buttons.
-- [ ] **Phase 9: Production social URLs** — Replace `TODO` links or hide the block until URLs are final.
+- [x] **Phase 9: Production social URLs** — Replace `TODO` links or hide the block until URLs are final.
 - [x] **Phase 10: Claims & counsel alignment** — Single voice for product/dose language across index, story, and bespoke; record review in `.planning/`. (completed 2026-04-27)
 - [ ] **Phase 11: Accent unification** — Replace ad-hoc gold (e.g. Story CTA `#C5A059`) with design-token `secondary` everywhere.
 - [ ] **Phase 12: Bespoke `<select>` i18n** — Channel option labels via `i18n` keys for EN/RU/TH.
