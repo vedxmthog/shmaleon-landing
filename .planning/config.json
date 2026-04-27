@@ -44,24 +44,62 @@
   "project_code": null,
   "phase_naming": "sequential",
   "agent_skills": {
-    "gsd-researcher": ["global:grill-me"],
-    "gsd-planner": ["global:grill-me"],
-    "gsd-checker": ["global:grill-me"],
-    "gsd-advisor": ["global:grill-me"],
-    "gsd-assumptions-analyzer": ["global:grill-me"],
-    "gsd-ui-researcher": ["global:grill-me"],
-    "gsd-ui-checker": ["global:grill-me"],
-    "gsd-project-researcher": ["global:grill-me"],
-    "gsd-synthesizer": ["global:grill-me"],
-    "gsd-roadmapper": ["global:grill-me"],
-    "gsd-integration-checker": ["global:grill-me"],
-    "gsd-nyquist-auditor": ["global:grill-me"],
-    "gsd-security-auditor": ["global:grill-me"],
-    "gsd-ui-reviewer": ["global:grill-me"],
-    "gsd-codebase-mapper": ["global:grill-me"],
-    "gsd-doc-writer": ["global:grill-me"],
-    "gsd-executor": ["global:tdd", "global:frontend-design"],
-    "gsd-verifier": ["global:tdd", "global:frontend-design"]
+    "gsd-researcher": [
+      "global:grill-me"
+    ],
+    "gsd-planner": [
+      "global:grill-me"
+    ],
+    "gsd-checker": [
+      "global:grill-me"
+    ],
+    "gsd-advisor": [
+      "global:grill-me"
+    ],
+    "gsd-assumptions-analyzer": [
+      "global:grill-me"
+    ],
+    "gsd-ui-researcher": [
+      "global:grill-me"
+    ],
+    "gsd-ui-checker": [
+      "global:grill-me"
+    ],
+    "gsd-project-researcher": [
+      "global:grill-me"
+    ],
+    "gsd-synthesizer": [
+      "global:grill-me"
+    ],
+    "gsd-roadmapper": [
+      "global:grill-me"
+    ],
+    "gsd-integration-checker": [
+      "global:grill-me"
+    ],
+    "gsd-nyquist-auditor": [
+      "global:grill-me"
+    ],
+    "gsd-security-auditor": [
+      "global:grill-me"
+    ],
+    "gsd-ui-reviewer": [
+      "global:grill-me"
+    ],
+    "gsd-codebase-mapper": [
+      "global:grill-me"
+    ],
+    "gsd-doc-writer": [
+      "global:grill-me"
+    ],
+    "gsd-executor": [
+      "global:tdd",
+      "global:frontend-design"
+    ],
+    "gsd-verifier": [
+      "global:tdd",
+      "global:frontend-design"
+    ]
   },
   "claude_md_path": "./CLAUDE.md",
   "mode": "yolo",

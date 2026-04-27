@@ -2,7 +2,7 @@
 
 ## Overview
 
-**Active milestone:** v1.1 — Execution refresh (2026-04-27). Phase workspaces were cleared; all checklist items below are reset to not started.
+**Active milestone:** v1.1 — Execution refresh (2026-04-27), plus **v1.2 UI/UX** backlog (Phases 5–18 below; 5–7 started/completed 2026-04-27).
 
 Ship a production-credible static site: **`index.html` as home** (collection experience), mobile-first chrome (burger nav, collapsed locale), full EN/RU/TH coverage with browser language detection, bespoke contact capture, social links, compliance-facing pages, and documented deploy plus SEO.
 
@@ -12,6 +12,23 @@ Ship a production-credible static site: **`index.html` as home** (collection exp
 - [ ] **Phase 2: Content, i18n & accessibility** — Full translations, auto-locale + persistence, glossary, a11y/form polish
 - [ ] **Phase 3: Trust & compliance** — Legal destinations and copy review hooks
 - [ ] **Phase 4: Launch readiness** — Deploy documentation, SEO (canonical, meta/OG, optional JSON-LD)
+
+### v1.2 — UI/UX polish (backlog)
+
+- [x] **Phase 5: Locale chrome parity** — Shared `shm-chrome.css` + `shm-locale-ui.js`; identical EN|RU|TH strip, separators, mobile disclosure, and focus rings on all pages (including legal/privacy/compliance); `data-shm-locale-toggle` + `window.shmCloseMobileNav` contract.
+- [x] **Phase 6: Responsive & overflow pass** — `min-w-0` / `overflow-x` safety; hero and product image heights scale on small viewports; responsive type for hero and story titles; horizontal padding `px-4 sm:px-6` before `margin-edge`; bespoke step headers and intensity cards avoid clipping.
+- [x] **Phase 7: Bespoke hero full-bleed** — Hero background image spans full viewport width (no `max-w-container-max` gutter on the media block); form content remains in `max-w-4xl` with responsive padding.
+- [ ] **Phase 8: Home hero CTA wiring** — “Inquire” / “Enter” map to real destinations (`bespoke.html`, story, scroll target, or mailto); no dead buttons.
+- [ ] **Phase 9: Production social URLs** — Replace `TODO` links or hide the block until URLs are final.
+- [ ] **Phase 10: Claims & counsel alignment** — Single voice for product/dose language across index, story, and bespoke; record review in `.planning/`.
+- [ ] **Phase 11: Accent unification** — Replace ad-hoc gold (e.g. Story CTA `#C5A059`) with design-token `secondary` everywhere.
+- [ ] **Phase 12: Bespoke `<select>` i18n** — Channel option labels via `i18n` keys for EN/RU/TH.
+- [ ] **Phase 13: Price clarity** — One line of microcopy under `15,000 THB` (per unit / from / inclusive) in all locales.
+- [ ] **Phase 14: A11y follow-up** — Skip link; `prefers-reduced-motion` for any future motion; audit focus order after hero CTA fix.
+- [ ] **Phase 15: Media hardening** — Self-host or stabilize image URLs; width/height hints to reduce CLS.
+- [ ] **Phase 16: Typography pass (optional)** — Body type with more character than Inter while keeping Noto for display.
+- [ ] **Phase 17: Legal page density** — Tighter mobile rhythm on draft legal/privacy/compliance if needed after content finalization.
+- [ ] **Phase 18: Dead class cleanup** — Remove or implement utility classes (e.g. legacy `slow fade`) project-wide.
 
 ## Phase Details
 

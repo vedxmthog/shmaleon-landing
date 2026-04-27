@@ -11,9 +11,9 @@
 <link rel="canonical" href="__CANONICAL_ORIGIN__/the-story.html"/>
 <title>SHMALEON - The Story</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&amp;family=Noto+Serif:wght@300;400;500&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500&amp;family=Noto+Serif:wght@400&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="shm-chrome.css" rel="stylesheet"/>
 <script id="tailwind-config">
         tailwind.config = {
             darkMode: "class",
@@ -121,29 +121,15 @@
             if (links[2]) links[2].href = SOCIAL.whatsapp;
         }
 
-        function syncStoryLangButtons(lang) {
-            document.querySelectorAll('.lang-btn').forEach(btn => {
-                if (btn.dataset.langBtn === lang) {
-                    btn.classList.add('text-secondary', 'border-b', 'border-secondary/40');
-                    btn.classList.remove('text-neutral-500');
-                } else {
-                    btn.classList.remove('text-secondary', 'border-b', 'border-secondary/40');
-                    btn.classList.add('text-neutral-500');
-                }
-            });
-        }
-
         function switchLanguage(lang) {
             window.shmPersistLocale(lang);
             window.shmApplyLocale(lang);
-            syncStoryLangButtons(lang);
         }
 
         document.addEventListener('DOMContentLoaded', () => {
             syncStoryFooterSocial();
             const initial = window.shmGetInitialLocale();
             window.shmApplyLocale(initial);
-            syncStoryLangButtons(initial);
 
             const navToggle = document.getElementById('story-nav-toggle');
             const mobileNav = document.getElementById('story-mobile-nav');
@@ -156,6 +142,7 @@
                 mobileNav.setAttribute('aria-hidden', 'true');
                 navToggle.setAttribute('aria-expanded', 'false');
             }
+            window.shmCloseMobileNav = closeMobileNav;
 
             function closeLocalePanel() {
                 if (!localeToggle || !localePanel) return;
@@ -189,11 +176,11 @@
                 });
             }
 
-            document.querySelectorAll('.story-lang-opt').forEach(btn => {
+            document.querySelectorAll('.lang-menu-btn').forEach(btn => {
                 btn.addEventListener('click', (e) => {
                     e.stopPropagation();
-                    const pick = btn.getAttribute('data-lang-pick');
-                    if (pick) switchLanguage(pick);
+                    const lang = btn.getAttribute('data-target-lang');
+                    if (lang) switchLanguage(lang);
                     closeLocalePanel();
                 });
             });
@@ -208,9 +195,9 @@
         });
     </script>
 </head>
-<body class="bg-background text-on-background antialiased min-h-screen flex flex-col">
+<body class="bg-background text-on-background antialiased min-h-screen flex flex-col min-w-0">
 <!-- TopAppBar -->
-<nav class="fixed top-0 w-full z-50 bg-neutral-950/60 backdrop-blur-2xl border-b border-secondary/20 opacity-fade transition-all duration-1000">
+<nav class="fixed top-0 w-full z-50 bg-neutral-950/60 backdrop-blur-2xl border-b border-secondary/20 transition-all duration-1000">
 <div class="w-full max-w-container-max mx-auto relative px-4 py-6 sm:px-6 md:px-12 md:py-10">
 <div class="flex items-center justify-between w-full gap-2 min-h-[2.75rem]">
 <div class="hidden md:flex gap-8 items-center z-10">
@@ -221,21 +208,23 @@
 <button type="button" id="story-nav-toggle" class="md:hidden z-20 text-secondary hover:text-amber-100 rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2 focus-visible:ring-offset-background" aria-expanded="false" aria-controls="story-mobile-nav" aria-label="Open menu">
 <span class="material-symbols-outlined text-2xl pointer-events-none">menu</span>
 </button>
-<div class="text-lg sm:text-xl md:text-2xl font-light tracking-[0.25em] sm:tracking-[0.35em] md:tracking-[0.4em] text-neutral-100 font-headline-md uppercase text-center absolute left-1/2 -translate-x-1/2 pointer-events-none drop-shadow-[0_0_10px_rgba(233,193,118,0.3)] max-w-[42vw] sm:max-w-none truncate">
+<div class="text-base min-[400px]:text-lg sm:text-xl md:text-2xl font-light tracking-[0.2em] sm:tracking-[0.35em] md:tracking-[0.4em] text-neutral-100 font-headline-md uppercase text-center absolute left-1/2 -translate-x-1/2 pointer-events-none drop-shadow-[0_0_10px_rgba(233,193,118,0.3)] max-w-[min(18rem,88vw)] sm:max-w-none whitespace-nowrap">
                 SHMALEON
             </div>
 <div class="flex gap-3 items-center ml-auto z-20">
-<div class="hidden md:flex gap-3 items-center mr-2 font-noto-serif text-[10px] tracking-widest uppercase">
-<button type="button" class="lang-btn text-secondary border-b border-secondary/40 pb-0.5 transition-colors duration-500" data-lang-btn="en" onclick="switchLanguage('en')">EN</button>
-<button type="button" class="lang-btn text-neutral-500 hover:text-secondary pb-0.5 transition-colors duration-500" data-lang-btn="ru" onclick="switchLanguage('ru')">RU</button>
-<button type="button" class="lang-btn text-neutral-500 hover:text-secondary pb-0.5 transition-colors duration-500" data-lang-btn="th" onclick="switchLanguage('th')">TH</button>
+<div class="hidden md:flex gap-2 items-center mr-4 font-noto-serif text-[10px] tracking-widest uppercase border-r border-secondary/20 pr-6">
+<button type="button" class="lang-btn text-secondary hover:text-secondary transition-colors" data-target-lang="en" onclick="switchLanguage('en')">EN</button>
+<span class="text-neutral-700">|</span>
+<button type="button" class="lang-btn text-neutral-500 hover:text-secondary transition-colors" data-target-lang="ru" onclick="switchLanguage('ru')">RU</button>
+<span class="text-neutral-700">|</span>
+<button type="button" class="lang-btn text-neutral-500 hover:text-secondary transition-colors" data-target-lang="th" onclick="switchLanguage('th')">TH</button>
 </div>
 <div class="relative md:hidden">
-<button type="button" id="story-locale-toggle" class="font-noto-serif text-[10px] tracking-widest uppercase text-secondary border border-secondary/30 rounded px-2 py-1.5 hover:bg-secondary/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2 focus-visible:ring-offset-background" aria-expanded="false" aria-controls="story-locale-panel" aria-haspopup="true"><span id="story-locale-label">EN</span></button>
+<button type="button" data-shm-locale-toggle="true" id="story-locale-toggle" class="font-noto-serif text-[10px] tracking-widest uppercase text-secondary border border-secondary/30 rounded px-2 py-1.5 hover:bg-secondary/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2 focus-visible:ring-offset-background" aria-expanded="false" aria-controls="story-locale-panel" aria-haspopup="true"><span id="story-locale-label" data-shm-locale-label>EN</span></button>
 <div id="story-locale-panel" class="hidden absolute right-0 top-full mt-2 min-w-[4.5rem] flex-col bg-neutral-900 border border-secondary/20 rounded shadow-xl overflow-hidden z-50" role="menu" aria-hidden="true">
-<button type="button" class="story-lang-opt px-4 py-2.5 text-[10px] tracking-widest text-left font-noto-serif hover:bg-secondary/10" data-lang-pick="en" role="menuitem">EN</button>
-<button type="button" class="story-lang-opt px-4 py-2.5 text-[10px] tracking-widest text-left font-noto-serif hover:bg-secondary/10" data-lang-pick="ru" role="menuitem">RU</button>
-<button type="button" class="story-lang-opt px-4 py-2.5 text-[10px] tracking-widest text-left font-noto-serif hover:bg-secondary/10" data-lang-pick="th" role="menuitem">TH</button>
+<button type="button" class="lang-menu-btn px-4 py-2.5 text-[10px] tracking-widest text-left font-noto-serif hover:bg-secondary/10" data-target-lang="en" role="menuitem">EN</button>
+<button type="button" class="lang-menu-btn px-4 py-2.5 text-[10px] tracking-widest text-left font-noto-serif hover:bg-secondary/10" data-target-lang="ru" role="menuitem">RU</button>
+<button type="button" class="lang-menu-btn px-4 py-2.5 text-[10px] tracking-widest text-left font-noto-serif hover:bg-secondary/10" data-target-lang="th" role="menuitem">TH</button>
 </div>
 </div>
 </div>
@@ -250,20 +239,20 @@
 </div>
 </nav>
 <!-- Main Canvas -->
-<main class="flex-grow flex flex-col pt-28 md:pt-32 pb-section-padding">
+<main class="flex-grow flex flex-col w-full min-w-0 pt-28 md:pt-32 pb-section-padding">
 <!-- Hero: The Origin of Silence -->
-<section class="min-h-[720px] md:min-h-[819px] flex flex-col items-center justify-center px-margin-edge relative mb-section-padding pt-6 md:pt-0">
-<div class="absolute inset-0 z-0">
-<img alt="" class="w-full h-full object-cover opacity-40" data-alt="A cinematic, low-light photograph of a mysterious, dark, highly textured, ornate box resting on a black reflective surface, illuminated by a single, soft overhead spotlight revealing subtle gold accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPKILiMfvWGCuG9kdYtXU9FjI84IRlLuUEKn3AIIT791weGRk0iWfGKbn7dQwxEpgKzMXErl11RkutVbj65BVVzENxFYqsOHukuwcE1kuaFWQXW4F6_sjbCss9_bMrkgAw6PnQ-rrNrzmoEaKujenwzdBLXvT-5f_w3Uwu-Yg6_XFZIx-oz2VZB9DenN_FqWvpAk5vXX2cshey01t1fJyf6UdM0_gh0tMv3SPVJThYW9qTu_idKld91FVHNusDd2ueKC7dspyrJcE"/>
+<section class="min-h-[100svh] md:min-h-[720px] lg:min-h-[819px] flex flex-col items-center justify-center px-4 sm:px-6 md:px-margin-edge relative mb-section-padding pt-6 md:pt-0">
+<div class="absolute inset-0 z-0 min-h-full">
+<img alt="" class="w-full h-full min-h-0 object-cover object-center opacity-40" data-alt="A cinematic, low-light photograph of a mysterious, dark, highly textured, ornate box resting on a black reflective surface, illuminated by a single, soft overhead spotlight revealing subtle gold accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPKILiMfvWGCuG9kdYtXU9FjI84IRlLuUEKn3AIIT791weGRk0iWfGKbn7dQwxEpgKzMXErl11RkutVbj65BVVzENxFYqsOHukuwcE1kuaFWQXW4F6_sjbCss9_bMrkgAw6PnQ-rrNrzmoEaKujenwzdBLXvT-5f_w3Uwu-Yg6_XFZIx-oz2VZB9DenN_FqWvpAk5vXX2cshey01t1fJyf6UdM0_gh0tMv3SPVJThYW9qTu_idKld91FVHNusDd2ueKC7dspyrJcE"/>
 <div class="absolute inset-0 bg-gradient-to-t from-background to-transparent"></div>
 </div>
-<div class="z-10 text-center max-w-3xl flex flex-col items-center">
-<h1 class="font-headline-xl text-headline-xl text-primary mb-12 tracking-widest uppercase" data-i18n="story_hero_title">The Origin of Silence</h1>
+<div class="z-10 text-center max-w-3xl flex flex-col items-center w-full mx-auto px-2">
+<h1 class="text-2xl min-[400px]:text-3xl sm:text-4xl md:text-5xl lg:text-headline-xl text-primary mb-8 md:mb-12 tracking-widest uppercase max-w-full shm-hero-title" data-i18n="story_hero_title">The Origin of Silence</h1>
 <div class="w-[1px] h-32 bg-outline/30"></div>
 </div>
 </section>
 <!-- Section 01: The Philosophy -->
-<section class="px-margin-edge max-w-container-max mx-auto w-full mb-section-padding flex flex-col items-center text-center">
+<section class="px-4 sm:px-6 md:px-margin-edge max-w-container-max mx-auto w-full mb-section-padding flex flex-col items-center text-center">
 <h2 class="font-label-caps text-label-caps text-secondary mb-12" data-lang="en">I. The Philosophy</h2>
 <h2 class="font-label-caps text-label-caps text-secondary mb-12" data-lang="ru">I. Философия</h2>
 <h2 class="font-label-caps text-label-caps text-secondary mb-12" data-lang="th">I. ปรัชญา</h2>
@@ -283,7 +272,7 @@
 </div>
 </section>
 <!-- Section 02: The Ritual of Creation -->
-<section class="px-margin-edge max-w-container-max mx-auto w-full mb-section-padding">
+<section class="px-4 sm:px-6 md:px-margin-edge max-w-container-max mx-auto w-full mb-section-padding">
 <div class="flex flex-col items-center mb-24">
 <h2 class="font-label-caps text-label-caps text-secondary mb-4" data-lang="en">II. The Ritual of Creation</h2>
 <h2 class="font-label-caps text-label-caps text-secondary mb-4" data-lang="ru">II. Ритуал создания</h2>
@@ -344,7 +333,7 @@
 </div>
 </section>
 <!-- Section 03: The Handover -->
-<section class="px-margin-edge max-w-container-max mx-auto w-full mb-section-padding grid grid-cols-1 md:grid-cols-12 gap-gutter items-center">
+<section class="px-4 sm:px-6 md:px-margin-edge max-w-container-max mx-auto w-full mb-section-padding grid grid-cols-1 md:grid-cols-12 gap-gutter items-center">
 <div class="md:col-span-5 md:col-start-2 order-2 md:order-1 flex flex-col justify-center">
 <h2 class="font-label-caps text-label-caps text-secondary mb-8" data-lang="en">III. The Handover</h2>
 <h2 class="font-label-caps text-label-caps text-secondary mb-8" data-lang="ru">III. Передача</h2>
@@ -368,15 +357,15 @@
 </div>
 </section>
 <!-- Final CTA -->
-<section class="flex flex-col items-center justify-center py-section-padding border-t border-surface-container-high mx-margin-edge">
+<section class="flex flex-col items-center justify-center py-section-padding border-t border-surface-container-high mx-4 sm:mx-6 md:mx-margin-edge">
 <h2 class="font-headline-md text-headline-md text-on-surface mb-12 text-center" data-lang="en">Step into the quiet.</h2>
 <h2 class="font-headline-md text-headline-md text-on-surface mb-12 text-center" data-lang="ru">Шагните в тишину.</h2>
 <h2 class="font-headline-md text-headline-md text-on-surface mb-12 text-center" data-lang="th">ก้าวเข้าสู่ความเงียบสงบ.</h2>
-<a class="border border-[#C5A059] text-[#C5A059] px-16 py-6 font-label-caps text-label-caps uppercase tracking-widest hover:bg-[#C5A059] hover:text-black transition-all duration-500 w-full max-w-md inline-flex justify-center items-center text-center" href="bespoke.html"><span data-lang="en">Join the Priority List</span><span data-lang="ru">Присоединиться к списку ожидания</span><span data-lang="th">เข้าร่วมรายชื่อผู้มีสิทธิ์ก่อน</span></a>
+<a class="border border-[#C5A059] text-[#C5A059] px-8 min-[400px]:px-16 py-6 font-label-caps text-label-caps uppercase tracking-widest hover:bg-[#C5A059] hover:text-black transition-all duration-500 w-full max-w-md inline-flex justify-center items-center text-center" href="bespoke.html"><span data-lang="en">Join the Priority List</span><span data-lang="ru">Присоединиться к списку ожидания</span><span data-lang="th">เข้าร่วมรายชื่อผู้มีสิทธิ์ก่อน</span></a>
 </section>
 </main>
 <!-- Footer -->
-<footer class="bg-neutral-950 full-width border-t border-secondary/20 flex flex-col md:flex-row justify-between items-center px-4 sm:px-6 md:px-12 py-16 w-full gap-8 slow fade on interaction mt-32">
+<footer class="bg-neutral-950 full-width border-t border-secondary/20 flex flex-col md:flex-row justify-between items-center px-4 sm:px-6 md:px-12 py-16 w-full gap-8 mt-32">
 <div class="text-secondary font-bold font-headline-md tracking-[0.4em] uppercase text-sm drop-shadow-[0_0_5px_rgba(233,193,118,0.3)]">
             SHMALEON
         </div>

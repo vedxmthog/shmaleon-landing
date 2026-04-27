@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html class="dark lang-en" lang="en">
-<head>
+
+<html class="dark lang-en" lang="en"><head>
 <meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <meta name="description" content="Privacy information for SHMALEON — draft page; not for publication until counsel-approved."/>
 <meta property="og:type" content="website"/>
 <meta property="og:title" content="SHMALEON - Privacy"/>
@@ -10,49 +10,187 @@
 <meta property="og:url" content="__CANONICAL_ORIGIN__/privacy.html"/>
 <link rel="canonical" href="__CANONICAL_ORIGIN__/privacy.html"/>
 <title>SHMALEON - Privacy</title>
-<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&amp;family=Noto+Serif:wght@300;400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="shm-chrome.css" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-tertiary": "#303030", "on-tertiary-container": "#7a7979", "primary-fixed-dim": "#c9c6c5", "on-background": "#e2e2e2", "tertiary-container": "#0a0a0a", "on-primary-fixed": "#1c1b1b", "inverse-primary": "#5f5e5e", "surface-tint": "#c9c6c5", "secondary": "#e9c176", "surface-container-low": "#1a1c1c", "error-container": "#93000a", "tertiary-fixed-dim": "#c8c6c5", "secondary-fixed": "#ffdea5", "inverse-on-surface": "#2f3131", "on-tertiary-fixed": "#1b1c1c", "secondary-container": "#604403", "on-primary": "#313030", "on-surface": "#e2e2e2", "surface-container-highest": "#333535", "secondary-fixed-dim": "#e9c176", "on-primary-container": "#7b7979", "background": "#121414", "on-error": "#690005", "tertiary-fixed": "#e4e2e1", "surface-variant": "#333535", "error": "#ffb4ab", "on-secondary-fixed-variant": "#5d4201", "outline-variant": "#444748", "tertiary": "#c8c6c5", "on-secondary-fixed": "#261900", "on-surface-variant": "#c4c7c7", "surface-dim": "#121414", "inverse-surface": "#e2e2e2", "primary-fixed": "#e5e2e1", "on-tertiary-fixed-variant": "#474747", "on-secondary": "#412d00", "on-error-container": "#ffdad6", "surface-container": "#1e2020", "primary-container": "#0a0a0a", "surface-container-lowest": "#0c0f0f", "primary": "#c9c6c5", "surface-bright": "#37393a", "surface-container-high": "#282a2b", "surface": "#121414", "outline": "#8e9192", "on-primary-fixed-variant": "#474646", "on-secondary-container": "#dab36a"
+              },
+              "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+              "spacing": { "unit": "8px", "section-padding": "128px", "margin-edge": "64px", "gutter": "32px", "container-max": "1440px" },
+              "fontFamily": { "noto-serif": ["Noto Serif", "ui-serif", "Georgia", "serif"], "label-caps": ["Inter"], "headline-xl": ["Noto Serif"], "headline-md": ["Noto Serif"], "body-lg": ["Inter"], "headline-lg": ["Noto Serif"], "body-md": ["Inter"] },
+              "fontSize": {
+                      "label-caps": ["12px", { "lineHeight": "1.0", "letterSpacing": "0.2em", "fontWeight": "500" }],
+                      "headline-xl": ["64px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "400" }],
+                      "headline-md": ["32px", { "lineHeight": "1.3", "letterSpacing": "0em", "fontWeight": "400" }],
+                      "body-lg": ["18px", { "lineHeight": "1.6", "letterSpacing": "0.02em", "fontWeight": "300" }],
+                      "headline-lg": ["48px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "400" }],
+                      "body-md": ["16px", { "lineHeight": "1.6", "letterSpacing": "0.01em", "fontWeight": "300" }]
+              }
+      },
+          },
+        }
+      </script>
 <style>
     .lang-ru [data-lang="en"], .lang-th [data-lang="en"],
     .lang-en [data-lang="ru"], .lang-th [data-lang="ru"],
     .lang-en [data-lang="th"], .lang-ru [data-lang="th"] { display: none; }
 </style>
 <script src="i18n.js"></script>
+<script>
+    const SOCIAL = { instagram: 'https://instagram.com/TODO', telegram: 'https://t.me/TODO', whatsapp: 'https://wa.me/TODO' };
+
+    function syncPrivacyFooterSocial() {
+        const root = document.getElementById('footer-social-privacy');
+        if (!root) return;
+        const links = root.querySelectorAll('a');
+        if (links[0]) links[0].href = SOCIAL.instagram;
+        if (links[1]) links[1].href = SOCIAL.telegram;
+        if (links[2]) links[2].href = SOCIAL.whatsapp;
+    }
+
+    function setLanguage(lang) {
+        window.shmPersistLocale(lang);
+        window.shmApplyLocale(lang);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        syncPrivacyFooterSocial();
+        window.shmApplyLocale(window.shmGetInitialLocale());
+
+        const navToggle = document.getElementById('privacy-nav-toggle');
+        const mobileNav = document.getElementById('privacy-mobile-nav');
+        const localeToggle = document.getElementById('privacy-locale-toggle');
+        const localePanel = document.getElementById('privacy-locale-panel');
+
+        function closeMobileNav() {
+            if (!navToggle || !mobileNav) return;
+            mobileNav.classList.add('hidden');
+            mobileNav.setAttribute('aria-hidden', 'true');
+            navToggle.setAttribute('aria-expanded', 'false');
+        }
+        window.shmCloseMobileNav = closeMobileNav;
+
+        function closeLocalePanel() {
+            if (!localeToggle || !localePanel) return;
+            localePanel.classList.add('hidden');
+            localePanel.setAttribute('aria-hidden', 'true');
+            localeToggle.setAttribute('aria-expanded', 'false');
+        }
+
+        if (navToggle && mobileNav) {
+            navToggle.addEventListener('click', () => {
+                mobileNav.classList.toggle('hidden');
+                const isOpen = !mobileNav.classList.contains('hidden');
+                mobileNav.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
+                navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+                if (isOpen) closeLocalePanel();
+            });
+        }
+
+        if (localeToggle && localePanel) {
+            localeToggle.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const wasHidden = localePanel.classList.contains('hidden');
+                closeMobileNav();
+                if (wasHidden) {
+                    localePanel.classList.remove('hidden');
+                    localePanel.setAttribute('aria-hidden', 'false');
+                    localeToggle.setAttribute('aria-expanded', 'true');
+                } else {
+                    closeLocalePanel();
+                }
+            });
+        }
+
+        document.querySelectorAll('.lang-menu-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const lang = btn.getAttribute('data-target-lang');
+                if (lang) setLanguage(lang);
+                closeLocalePanel();
+            });
+        });
+
+        document.addEventListener('click', () => closeLocalePanel());
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') { closeMobileNav(); closeLocalePanel(); }
+        });
+    });
+</script>
 </head>
-<body class="bg-[#121414] text-[#e2e2e2] antialiased min-h-screen flex flex-col font-sans">
-<div class="bg-amber-900/30 border-b border-amber-500/40 text-amber-100 text-center text-xs font-['Noto_Serif'] py-2 px-4">
+<body class="bg-background text-on-background antialiased selection:bg-secondary selection:text-on-secondary min-w-0 min-h-screen flex flex-col">
+<nav class="fixed top-0 w-full z-50 bg-neutral-950/60 backdrop-blur-2xl border-b border-secondary/20 transition-all duration-1000">
+<div class="w-full max-w-container-max mx-auto relative px-4 py-6 sm:px-6 md:px-12 md:py-10">
+<div class="flex items-center justify-between w-full gap-2 min-h-[2.75rem]">
+<div class="hidden md:flex gap-8 items-center z-10">
+<a class="font-noto-serif tracking-[0.2em] uppercase text-xs text-neutral-400 hover:text-secondary transition-opacity duration-700 ease-in-out" href="index.html"><span data-i18n="nav_collection">The Collection</span></a>
+<a class="font-noto-serif tracking-[0.2em] uppercase text-xs text-neutral-400 hover:text-secondary transition-opacity duration-700 ease-in-out" href="bespoke.html"><span data-i18n="nav_bespoke">Bespoke</span></a>
+<a class="font-noto-serif tracking-[0.2em] uppercase text-xs text-neutral-400 hover:text-secondary transition-opacity duration-700 ease-in-out" href="the-story.html"><span data-i18n="nav_story">The Story</span></a>
+</div>
+<button type="button" id="privacy-nav-toggle" class="md:hidden z-20 text-secondary hover:text-amber-100 rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2 focus-visible:ring-offset-background" aria-expanded="false" aria-controls="privacy-mobile-nav" aria-label="Open menu">
+<span class="material-symbols-outlined text-2xl pointer-events-none">menu</span>
+</button>
+<div class="text-base min-[400px]:text-lg sm:text-xl md:text-2xl font-light tracking-[0.2em] sm:tracking-[0.35em] md:tracking-[0.4em] text-neutral-100 font-headline-md uppercase text-center absolute left-1/2 -translate-x-1/2 pointer-events-none drop-shadow-[0_0_10px_rgba(233,193,118,0.3)] max-w-[min(18rem,88vw)] sm:max-w-none whitespace-nowrap">SHMALEON</div>
+<div class="flex gap-3 items-center ml-auto z-20">
+<div class="hidden md:flex gap-2 items-center mr-4 font-noto-serif text-[10px] tracking-widest uppercase border-r border-secondary/20 pr-6">
+<button type="button" class="lang-btn text-secondary hover:text-secondary transition-colors" data-target-lang="en" onclick="setLanguage('en')">EN</button>
+<span class="text-neutral-700">|</span>
+<button type="button" class="lang-btn text-neutral-500 hover:text-secondary transition-colors" data-target-lang="ru" onclick="setLanguage('ru')">RU</button>
+<span class="text-neutral-700">|</span>
+<button type="button" class="lang-btn text-neutral-500 hover:text-secondary transition-colors" data-target-lang="th" onclick="setLanguage('th')">TH</button>
+</div>
+<div class="relative md:hidden">
+<button type="button" data-shm-locale-toggle="true" id="privacy-locale-toggle" class="font-noto-serif text-[10px] tracking-widest uppercase text-secondary border border-secondary/30 rounded px-2 py-1.5 hover:bg-secondary/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2 focus-visible:ring-offset-background" aria-expanded="false" aria-controls="privacy-locale-panel" aria-haspopup="true"><span id="privacy-locale-label" data-shm-locale-label>EN</span></button>
+<div id="privacy-locale-panel" class="hidden absolute right-0 top-full mt-2 min-w-[4.5rem] flex flex-col bg-neutral-900 border border-secondary/20 rounded shadow-xl overflow-hidden z-50" role="menu" aria-hidden="true">
+<button type="button" class="lang-menu-btn px-4 py-2.5 text-[10px] tracking-widest text-left font-noto-serif hover:bg-secondary/10" data-target-lang="en" role="menuitem">EN</button>
+<button type="button" class="lang-menu-btn px-4 py-2.5 text-[10px] tracking-widest text-left font-noto-serif hover:bg-secondary/10" data-target-lang="ru" role="menuitem">RU</button>
+<button type="button" class="lang-menu-btn px-4 py-2.5 text-[10px] tracking-widest text-left font-noto-serif hover:bg-secondary/10" data-target-lang="th" role="menuitem">TH</button>
+</div>
+</div>
+</div>
+</div>
+<div id="privacy-mobile-nav" class="hidden md:hidden border-t border-secondary/15 bg-neutral-950/95 backdrop-blur-xl" aria-hidden="true">
+<div class="flex flex-col py-4 gap-1 font-noto-serif text-[10px] tracking-widest uppercase">
+<a class="px-4 py-3 text-neutral-400 hover:text-secondary border-l-2 border-transparent" href="index.html"><span data-i18n="nav_collection">The Collection</span></a>
+<a class="px-4 py-3 text-neutral-400 hover:text-secondary border-l-2 border-transparent" href="bespoke.html"><span data-i18n="nav_bespoke">Bespoke</span></a>
+<a class="px-4 py-3 text-neutral-400 hover:text-secondary border-l-2 border-transparent" href="the-story.html"><span data-i18n="nav_story">The Story</span></a>
+</div>
+</div>
+</div>
+</nav>
+<main class="flex-grow w-full min-w-0 pt-28 md:pt-32 pb-section-padding">
+<div class="max-w-3xl mx-auto px-4 sm:px-6 md:px-12 w-full">
+<div class="mb-10 rounded-sm border border-amber-500/40 bg-amber-900/25 text-amber-100/95 text-center text-xs font-noto-serif tracking-wide py-3 px-4">
 <span data-lang="en">Draft — not for publication</span>
 <span data-lang="ru">Черновик — не для публикации</span>
 <span data-lang="th">ร่าง — ยังไม่เผยแพร่</span>
 </div>
-<nav class="border-b border-[#e9c176]/20 bg-neutral-950/90 px-4 py-6">
-<div class="max-w-5xl mx-auto flex flex-wrap gap-6 justify-center text-[10px] tracking-[0.2em] uppercase font-['Noto_Serif']">
-<a class="text-neutral-400 hover:text-[#e9c176]" href="index.html"><span data-i18n="nav_collection">The Collection</span></a>
-<a class="text-neutral-400 hover:text-[#e9c176]" href="bespoke.html"><span data-i18n="nav_bespoke">Bespoke</span></a>
-<a class="text-neutral-400 hover:text-[#e9c176]" href="the-story.html"><span data-i18n="nav_story">The Story</span></a>
+<h1 class="font-headline-md text-2xl sm:text-headline-md text-secondary mb-8 tracking-widest uppercase">Privacy</h1>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed mb-4" data-lang="en">This page is a structural placeholder. A full privacy notice will describe data practices (including any hosting or analytics) once counsel approves publication.</p>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed mb-4" data-lang="ru">Эта страница является структурным заполнителем. Полное уведомление о конфиденциальности будет добавлено после одобрения.</p>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed mb-4" data-lang="th">หน้านี้เป็นตัวยึดโครงสร้างเท่านั้น ประกาศความเป็นส่วนตัวฉบับสมบูรณ์จะเพิ่มหลังได้รับอนุมัติ</p>
 </div>
-</nav>
-<main class="flex-grow max-w-3xl mx-auto px-6 py-16">
-<h1 class="font-['Noto_Serif'] text-3xl text-[#e9c176] mb-8 tracking-wide uppercase">Privacy</h1>
-<p class="text-neutral-400 leading-relaxed mb-4" data-lang="en">This page is a structural placeholder. A full privacy notice will describe data practices (including any hosting or analytics) once counsel approves publication.</p>
-<p class="text-neutral-400 leading-relaxed mb-4" data-lang="ru">Эта страница является структурным заполнителем. Полное уведомление о конфиденциальности будет добавлено после одобрения.</p>
-<p class="text-neutral-400 leading-relaxed mb-4" data-lang="th">หน้านี้เป็นตัวยึดโครงสร้างเท่านั้น ประกาศความเป็นส่วนตัวฉบับสมบูรณ์จะเพิ่มหลังได้รับอนุมัติ</p>
 </main>
-<footer class="border-t border-[#e9c176]/20 mt-auto px-6 py-12 flex flex-col md:flex-row flex-wrap gap-6 justify-between items-center text-[10px] tracking-widest uppercase font-['Noto_Serif'] text-neutral-500">
-<div class="text-[#e9c176] font-semibold tracking-[0.35em]">SHMALEON</div>
-<div><span data-i18n="footer_copyright">© 2026 SHMALEON. BY INVITATION ONLY.</span></div>
-<div class="flex gap-4">
-<a class="hover:text-[#e9c176]" href="legal.html"><span data-i18n="footer_legal">Legal</span></a>
-<a class="hover:text-[#e9c176]" href="privacy.html"><span data-i18n="footer_privacy">Privacy</span></a>
-<a class="hover:text-[#e9c176]" href="compliance.html"><span data-i18n="footer_compliance">Compliance</span></a>
+<footer class="bg-neutral-950 full-width border-t border-secondary/20 flex flex-col md:flex-row justify-between items-center px-4 sm:px-6 md:px-12 py-16 w-full gap-8">
+<div class="text-secondary font-bold font-headline-md tracking-[0.4em] uppercase text-sm drop-shadow-[0_0_5px_rgba(233,193,118,0.3)]">SHMALEON</div>
+<div class="font-noto-serif text-[10px] tracking-widest uppercase text-neutral-500 text-center md:text-left"><span data-i18n="footer_copyright">© 2026 SHMALEON. BY INVITATION ONLY.</span></div>
+<div class="flex flex-wrap gap-4 md:gap-6 font-noto-serif text-[10px] tracking-widest uppercase justify-center md:justify-start" id="footer-social-privacy">
+<a class="text-neutral-500 hover:text-secondary transition-colors duration-500" data-i18n="footer_social_ig" href="https://instagram.com/TODO" rel="noopener noreferrer" target="_blank">Instagram</a>
+<a class="text-neutral-500 hover:text-secondary transition-colors duration-500" data-i18n="footer_social_tg" href="https://t.me/TODO" rel="noopener noreferrer" target="_blank">Telegram</a>
+<a class="text-neutral-500 hover:text-secondary transition-colors duration-500" data-i18n="footer_social_wa" href="https://wa.me/TODO" rel="noopener noreferrer" target="_blank">WhatsApp</a>
+</div>
+<div class="flex gap-6 font-noto-serif text-[10px] tracking-widest uppercase">
+<a class="text-neutral-500 hover:text-secondary transition-colors duration-500" href="legal.html"><span data-i18n="footer_legal">Legal</span></a>
+<a class="text-neutral-500 hover:text-secondary transition-colors duration-500" href="privacy.html"><span data-i18n="footer_privacy">Privacy</span></a>
+<a class="text-neutral-500 hover:text-secondary transition-colors duration-500" href="compliance.html"><span data-i18n="footer_compliance">Compliance</span></a>
 </div>
 </footer>
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-  if (window.shmApplyLocale && window.shmGetInitialLocale) {
-    window.shmApplyLocale(window.shmGetInitialLocale());
-  }
-});
-</script>
 </body>
 </html>
