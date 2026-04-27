@@ -110,7 +110,7 @@
 <a class="font-noto-serif tracking-[0.2em] uppercase text-xs text-secondary font-medium border-b border-secondary/40 pb-1 hover:text-amber-100 transition-opacity duration-700 ease-in-out" data-i18n="nav_bespoke" href="bespoke.html">Bespoke</a>
 <a class="font-noto-serif tracking-[0.2em] uppercase text-xs text-neutral-400 hover:text-secondary transition-opacity duration-700 ease-in-out" data-i18n="nav_story" href="the-story.html">The Story</a>
 </div>
-<button type="button" id="bespoke-nav-toggle" class="md:hidden z-20 text-secondary hover:text-amber-100 rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-secondary/60" aria-expanded="false" aria-controls="bespoke-mobile-nav" aria-label="Open menu">
+<button type="button" id="bespoke-nav-toggle" class="md:hidden z-20 text-secondary hover:text-amber-100 rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2 focus-visible:ring-offset-background" aria-expanded="false" aria-controls="bespoke-mobile-nav" aria-label="Open menu">
 <span class="material-symbols-outlined text-2xl pointer-events-none">menu</span>
 </button>
 <div class="text-lg sm:text-xl md:text-2xl font-light tracking-[0.25em] sm:tracking-[0.35em] md:tracking-[0.4em] text-neutral-100 font-headline-md uppercase text-center absolute left-1/2 -translate-x-1/2 pointer-events-none drop-shadow-[0_0_10px_rgba(233,193,118,0.3)] max-w-[42vw] sm:max-w-none truncate">
@@ -118,7 +118,7 @@
             </div>
 <div class="flex gap-3 items-center ml-auto z-20">
 <div class="relative ml-2">
-<button type="button" class="text-secondary hover:text-amber-100 transition-colors duration-300 font-label-caps text-[10px] tracking-widest focus:outline-none focus-visible:ring-2 focus-visible:ring-secondary/60 rounded px-1" id="current-lang" aria-expanded="false" aria-controls="bespoke-locale-panel" aria-haspopup="true">EN</button>
+<button type="button" class="text-secondary hover:text-amber-100 transition-colors duration-300 font-label-caps text-[10px] tracking-widest focus:outline-none focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded px-1" id="current-lang" aria-expanded="false" aria-controls="bespoke-locale-panel" aria-haspopup="true">EN</button>
 <div id="bespoke-locale-panel" class="hidden absolute right-0 top-full mt-2 flex flex-col bg-neutral-900 border border-secondary/20 rounded shadow-xl overflow-hidden min-w-[60px] z-50" role="menu" aria-hidden="true">
 <button type="button" class="locale-opt px-4 py-3 text-[10px] tracking-widest text-on-surface hover:bg-secondary/10 hover:text-secondary text-left font-label-caps transition-colors" data-lang-pick="en" role="menuitem">EN</button>
 <button type="button" class="locale-opt px-4 py-3 text-[10px] tracking-widest text-on-surface hover:bg-secondary/10 hover:text-secondary text-left font-label-caps transition-colors" data-lang-pick="ru" role="menuitem">RU</button>
@@ -266,13 +266,14 @@
 <option value="email">Email</option>
 </select>
 <label class="font-label-caps text-label-caps text-on-surface-variant block" id="contact-label" for="contact-value">Telegram username or link</label>
-<input class="w-full bg-transparent border-0 border-b border-outline text-on-surface font-body-md py-4 px-0 focus:ring-0 focus:border-secondary" id="contact-value" name="contact_value" type="text" autocomplete="off"/>
-<span class="text-error text-sm hidden" id="contact-error" role="alert" data-i18n="contact_error_invalid">Enter a valid value for this channel.</span>
+<input class="w-full bg-transparent border-0 border-b border-outline text-on-surface font-body-md py-4 px-0 focus:ring-0 focus:border-secondary" id="contact-value" name="contact_value" type="text" autocomplete="off" aria-describedby="contact-error"/>
+<span class="text-error text-sm hidden" id="contact-error" role="alert">Enter a valid value for this channel.</span>
+<div id="form-status" class="sr-only" role="status" aria-live="polite"></div>
 </div>
 </section>
 <!-- Action -->
 <section class="pt-margin-edge opacity-fade-in flex justify-center" style="animation-delay: 0.8s;">
-<button type="button" class="border border-secondary text-secondary font-label-caps text-label-caps px-16 py-6 hover:bg-secondary hover:text-[#0A0A0A] transition-all duration-500 w-full md:w-auto tracking-widest" data-i18n="btn_submit" id="btn-initiate-request">
+<button type="button" class="border border-secondary text-secondary font-label-caps text-label-caps px-16 py-6 hover:bg-secondary hover:text-[#0A0A0A] transition-all duration-500 w-full md:w-auto tracking-widest focus:outline-none focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2 focus-visible:ring-offset-background" data-i18n="btn_submit" id="btn-initiate-request">
                     INITIATE REQUEST
                 </button>
 </section>
@@ -319,21 +320,35 @@
         return String(s).replace(/\D/g, '');
     }
 
-    function validateChannel(channel, raw) {
+    function shmValidationMsg(key) {
+        const lang = window.shmGetActiveLocale();
+        const t = (window.SHM_TRANSLATIONS && window.SHM_TRANSLATIONS[lang]) || window.SHM_TRANSLATIONS.en;
+        return (t && t[key]) || (t && t.contact_error_invalid) || '';
+    }
+
+    function validateChannelDetail(channel, raw) {
         const v = sanitizeContactInput(raw);
-        if (!v) return false;
-        if (channel === 'email') return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
-        if (channel === 'whatsapp') return digitsOnly(v).length >= 8;
+        if (!v) return { ok: false, key: 'error_contact_required' };
+        if (channel === 'email') {
+            if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)) return { ok: false, key: 'error_email_invalid' };
+            return { ok: true };
+        }
+        if (channel === 'whatsapp') {
+            if (digitsOnly(v).length < 8) return { ok: false, key: 'error_whatsapp_format' };
+            return { ok: true };
+        }
         if (channel === 'instagram') {
             const h = v.replace(/^@/, '');
-            return /^[A-Za-z0-9._]{1,30}$/.test(h);
+            if (!/^[A-Za-z0-9._]{1,30}$/.test(h)) return { ok: false, key: 'error_instagram_invalid' };
+            return { ok: true };
         }
         if (channel === 'telegram') {
-            if (/^https?:\/\//i.test(v)) return true;
+            if (/^https?:\/\//i.test(v)) return { ok: true };
             const u = v.replace(/^@/, '');
-            return /^[A-Za-z0-9_]{5,32}$/.test(u);
+            if (!/^[A-Za-z0-9_]{5,32}$/.test(u)) return { ok: false, key: 'error_telegram_invalid' };
+            return { ok: true };
         }
-        return false;
+        return { ok: false, key: 'error_channel_required' };
     }
 
     function applyContactChannel() {
@@ -348,7 +363,13 @@
         const t = (window.SHM_TRANSLATIONS && window.SHM_TRANSLATIONS[lang]) || window.SHM_TRANSLATIONS.en;
         label.textContent = t[map[ch]] || '';
         input.removeAttribute('aria-invalid');
-        if (err) err.classList.add('hidden');
+        input.setAttribute('aria-describedby', 'contact-error');
+        if (err) {
+            err.classList.add('hidden');
+            err.textContent = shmValidationMsg('contact_error_invalid');
+        }
+        const st = document.getElementById('form-status');
+        if (st) st.textContent = '';
         if (ch === 'email') {
             input.type = 'email';
             input.inputMode = 'email';
@@ -450,14 +471,21 @@
                 const channel = document.getElementById('contact-channel').value;
                 const input = document.getElementById('contact-value');
                 const err = document.getElementById('contact-error');
+                const statusEl = document.getElementById('form-status');
                 const raw = input.value;
-                if (!validateChannel(channel, raw)) {
+                const result = validateChannelDetail(channel, raw);
+                if (!result.ok) {
                     input.setAttribute('aria-invalid', 'true');
-                    err.classList.remove('hidden');
+                    input.setAttribute('aria-describedby', 'contact-error');
+                    if (err) {
+                        err.textContent = shmValidationMsg(result.key);
+                        err.classList.remove('hidden');
+                    }
+                    if (statusEl) statusEl.textContent = shmValidationMsg(result.key);
                     return;
                 }
-                input.removeAttribute('aria-invalid');
-                err.classList.add('hidden');
+                input.setAttribute('aria-invalid', 'false');
+                if (err) err.classList.add('hidden');
                 const formEl = document.querySelector('input[name="form"]:checked');
                 const intEl = document.querySelector('input[name="intensity"]:checked');
                 const inscriptionEl = document.getElementById('inscription');
@@ -467,6 +495,7 @@
                 const contact = sanitizeContactInput(raw);
                 let body = `Form: ${form}\nIntensity: ${intensity}\nInscription: ${inscription}\nChannel: ${channel}\nContact: ${contact}`;
                 body = body.replace(/[<>]/g, '');
+                if (statusEl) statusEl.textContent = shmValidationMsg('form_submit_ok');
                 if (channel === 'whatsapp') {
                     const num = digitsOnly(contact);
                     const text = encodeURIComponent(`Bespoke request — form ${form}, ${intensity}. Inscription: ${inscription}.`);

@@ -40,6 +40,15 @@
       contact_label_whatsapp: 'WhatsApp number (with country code)',
       contact_label_email: 'Email address',
       contact_error_invalid: 'Enter a valid value for this channel.',
+      story_hero_title: 'The Origin of Silence',
+      error_contact_required: 'Please enter your contact details.',
+      error_email_invalid: 'Enter a valid email address.',
+      error_whatsapp_format: 'Enter a WhatsApp number with country code (at least 8 digits).',
+      error_telegram_required: 'Enter a Telegram username or a valid t.me link.',
+      error_telegram_invalid: 'Enter a valid Telegram username (5–32 characters) or https link.',
+      error_instagram_invalid: 'Enter a valid Instagram handle.',
+      error_channel_required: 'Choose how we should reach you.',
+      form_submit_ok: 'Request initiated. Completing handoff in your chosen channel.',
       footer_copyright: '© 2026 SHMALEON. BY INVITATION ONLY.',
       footer_social_ig: 'Instagram',
       footer_social_tg: 'Telegram',
@@ -81,6 +90,15 @@
       contact_label_whatsapp: 'Номер WhatsApp (с кодом страны)',
       contact_label_email: 'Адрес электронной почты',
       contact_error_invalid: 'Введите корректное значение для этого канала.',
+      story_hero_title: 'Происхождение тишины',
+      error_contact_required: 'Укажите контактные данные.',
+      error_email_invalid: 'Введите корректный адрес электронной почты.',
+      error_whatsapp_format: 'Введите номер WhatsApp с кодом страны (не менее 8 цифр).',
+      error_telegram_required: 'Введите имя пользователя Telegram или корректную ссылку t.me.',
+      error_telegram_invalid: 'Введите корректное имя пользователя Telegram (5–32 символа) или ссылку https.',
+      error_instagram_invalid: 'Введите корректное имя в Instagram.',
+      error_channel_required: 'Выберите канал связи.',
+      form_submit_ok: 'Запрос инициирован. Переход к выбранному каналу.',
       footer_copyright: '© 2026 SHMALEON. ТОЛЬКО ПО ПРИГЛАШЕНИЮ.',
       footer_social_ig: 'Instagram',
       footer_social_tg: 'Telegram',
@@ -122,6 +140,15 @@
       contact_label_whatsapp: 'หมายเลข WhatsApp (รวมรหัสประเทศ)',
       contact_label_email: 'ที่อยู่อีเมล',
       contact_error_invalid: 'กรุณากรอกข้อมูลให้ถูกต้องสำหรับช่องทางนี้',
+      story_hero_title: 'จุดเริ่มต้นของความเงียบ',
+      error_contact_required: 'กรุณากรอกข้อมูลติดต่อ',
+      error_email_invalid: 'กรุณากรอกที่อยู่อีเมลที่ถูกต้อง',
+      error_whatsapp_format: 'กรอกหมายเลข WhatsApp พร้อมรหัสประเทศ (อย่างน้อย 8 หลัก)',
+      error_telegram_required: 'กรอกชื่อผู้ใช้ Telegram หรือลิงก์ t.me ที่ถูกต้อง',
+      error_telegram_invalid: 'กรอกชื่อผู้ใช้ Telegram ที่ถูกต้อง (5–32 ตัวอักษร) หรือลิงก์ https',
+      error_instagram_invalid: 'กรอกชื่อผู้ใช้ Instagram ที่ถูกต้อง',
+      error_channel_required: 'เลือกช่องทางการติดต่อ',
+      form_submit_ok: 'เริ่มคำขอแล้ว กำลังเปิดช่องทางที่คุณเลือก',
       footer_copyright: '© 2026 SHMALEON ตามคำเชิญเท่านั้น',
       footer_social_ig: 'Instagram',
       footer_social_tg: 'Telegram',
@@ -168,6 +195,13 @@
     el.className = String(el.className || '').replace(/\blang-\w+\b/g, '').trim();
     el.classList.add('lang-' + lang);
     el.setAttribute('lang', lang === 'en' ? 'en' : lang === 'ru' ? 'ru' : 'th');
+  }
+
+  function shmHydrateImageAlts() {
+    document.querySelectorAll('img[data-alt]').forEach(function (img) {
+      var d = img.getAttribute('data-alt');
+      if (d) img.setAttribute('alt', d);
+    });
   }
 
   function shmSyncLangButtons(lang) {
@@ -221,6 +255,8 @@
     } catch (e) {
       /* CustomEvent unsupported */
     }
+
+    shmHydrateImageAlts();
   }
 
   function shmGetActiveLocale() {
@@ -252,4 +288,5 @@
   window.shmApplyLocale = shmApplyLocale;
   window.shmGetActiveLocale = shmGetActiveLocale;
   window.shmGetInitialLocale = shmGetInitialLocale;
+  window.shmHydrateImageAlts = shmHydrateImageAlts;
 })();
