@@ -21,7 +21,7 @@ progress:
 See: `.planning/PROJECT.md` (updated 2026-04-27)
 
 **Core value:** Cohesive, trustworthy, premium static experience aligned with brand and compliance reality.  
-**Current focus:** Phase 13 — price-clarity
+**Current focus:** Phase 14 — a11y-follow-up
 
 ## Current Position
 
