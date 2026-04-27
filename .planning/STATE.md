@@ -3,15 +3,15 @@ gsd_state_version: 1.0
 milestone: v1.2
 milestone_name: — UI/UX polish
 status: executing
-stopped_at: Phase 14 UI-SPEC approved
-last_updated: "2026-04-27T04:55:58.849Z"
-last_activity: 2026-04-27
+stopped_at: Phase 3 deferred; next — Phase 15 plans or `/gsd-progress`
+last_updated: "2026-04-27T04:57:49.354Z"
+last_activity: 2026-04-27 -- Phase 15 planning complete
 progress:
   total_phases: 18
-  completed_phases: 10
+  completed_phases: 11
   total_plans: 20
-  completed_plans: 14
-  percent: 70
+  completed_plans: 15
+  percent: 75
 ---
 
 # Project State
@@ -21,16 +21,16 @@ progress:
 See: `.planning/PROJECT.md` (updated 2026-04-27)
 
 **Core value:** Cohesive, trustworthy, premium static experience aligned with brand and compliance reality.  
-**Current focus:** Phase 14 — a11y-follow-up
+**Current focus:** Phase 15 — media hardening (Phase 3 trust work deferred)
 
 ## Current Position
 
-Phase: 15
+Phase: 15 (media hardening)
 Plan: Not started
 Status: Ready to execute
-Last activity: 2026-04-27
+Last activity: 2026-04-27 -- Phase 15 planning complete
 
-Progress: [░░░░░░░░░░] 0%
+Progress: see roadmap / `gsd-progress` bar (15/20 plans)
 
 ## Performance Metrics
 
@@ -83,10 +83,10 @@ None yet.
 
 | Category | Item | Status | Deferred at |
 |----------|------|--------|-------------|
-| *(none)* | | | |
+| Compliance | Phase 3 — TRUST-01 pages, footer wiring, TRUST-02 memo | Skipped | 2026-04-27 |
 
 ## Session continuity
 
 Last session: 2026-04-27T04:48:49.228Z
-Stopped at: Phase 14 UI-SPEC approved
-Resume file: .planning/phases/14-a11y-follow-up/14-UI-SPEC.md
+Stopped at: Phase 3 deferred; next — Phase 15 plans or `/gsd-progress`
+Resume file: (none required for deferred Phase 3)
