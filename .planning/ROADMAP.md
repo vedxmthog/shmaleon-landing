@@ -278,7 +278,11 @@ Plans:
 
 1. Channel `<select>` options fully translated; no hard-coded English-only option text.
 
-**Plans**: 0 plans
+**Plans**: 1 plan (`12-01-PLAN.md`)
+
+Plans:
+
+- [ ] 12-01: Add `channel_option_*` keys to `i18n.js`; `data-i18n` on bespoke channel `<option>`; `shm:locale` → `applyContactChannel`; mirror `GLOSSARY.md`
 
 **UI hint**: yes
 
