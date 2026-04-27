@@ -46,3 +46,4 @@ Canonical strings for `i18n.js` `SHM_TRANSLATIONS`. Update this table first, the
 | footer_legal | Legal | Правовая информация | กฎหมาย |
 | footer_privacy | Privacy | Конфиденциальность | ความเป็นส่วนตัว |
 | footer_compliance | Compliance | Соответствие требованиям | การปฏิบัติตาม |
+| index_scarcity_price_qualifier | Per piece. | За единицу. | ต่อชิ้น |
