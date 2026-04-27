@@ -178,8 +178,7 @@
 
     document.addEventListener('DOMContentLoaded', () => {
         syncIndexFooterSocial();
-        const s = window.shmReadStoredLocale();
-        window.shmApplyLocale(s || 'en');
+        window.shmApplyLocale(window.shmGetInitialLocale());
 
         const navToggle = document.getElementById('index-nav-toggle');
         const mobileNav = document.getElementById('index-mobile-nav');

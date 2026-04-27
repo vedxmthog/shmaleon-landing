@@ -376,8 +376,7 @@
 
     document.addEventListener('DOMContentLoaded', () => {
         syncFooterSocial();
-        const s = window.shmReadStoredLocale();
-        window.shmApplyLocale(s || 'en');
+        window.shmApplyLocale(window.shmGetInitialLocale());
         applyContactChannel();
 
         const navToggle = document.getElementById('bespoke-nav-toggle');

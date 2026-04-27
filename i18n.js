@@ -227,10 +227,21 @@
     return __shmActiveLocale;
   }
 
-  /** First visit + sticky choice — expanded in phase 02-02 */
+  /**
+   * Sticky user choice (localStorage) wins; else map navigator languages; else 'en'.
+   */
   function shmGetInitialLocale() {
     var stored = shmReadStoredLocale();
     if (stored) return stored;
+    if (typeof navigator === 'undefined') return 'en';
+    var tags = navigator.languages && navigator.languages.length
+      ? navigator.languages
+      : [navigator.language || 'en'];
+    for (var i = 0; i < tags.length; i++) {
+      var tag = String(tags[i] || '').toLowerCase();
+      if (tag === 'th' || tag.indexOf('th-') === 0) return 'th';
+      if (tag === 'ru' || tag.indexOf('ru-') === 0) return 'ru';
+    }
     return 'en';
   }
 

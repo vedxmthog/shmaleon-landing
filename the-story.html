@@ -135,8 +135,7 @@
 
         document.addEventListener('DOMContentLoaded', () => {
             syncStoryFooterSocial();
-            const s = window.shmReadStoredLocale();
-            const initial = s || 'en';
+            const initial = window.shmGetInitialLocale();
             window.shmApplyLocale(initial);
             syncStoryLangButtons(initial);
 
