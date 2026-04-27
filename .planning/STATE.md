@@ -2,8 +2,8 @@
 gsd_state_version: 1.0
 milestone: v1.2
 milestone_name: — UI/UX polish
-status: executing
-stopped_at: Phases 17–18 complete per /gsd-autonomous --from=17 --to=18; v1.2 backlog done — optional `/gsd-autonomous` for lifecycle or next milestone
+status: complete
+stopped_at: Milestone v1.2 closed — `/gsd-complete-milestone` (2026-04-27)
 last_updated: "2026-04-27T12:00:00.000Z"
 last_activity: 2026-04-27
 progress:
@@ -21,16 +21,13 @@ progress:
 See: `.planning/PROJECT.md` (updated 2026-04-27)
 
 **Core value:** Cohesive, trustworthy, premium static experience aligned with brand and compliance reality.  
-**Current focus:** v1.2 UI/UX backlog — phases 17–18 executed 2026-04-27
+**Current focus:** Next milestone (use `/gsd-new-milestone` — new `REQUIREMENTS.md` + roadmap)
 
 ## Current Position
 
-Phase: 18 (complete through `--to 18`)
-Plan: 18-01 complete
-Status: Legal density + dead-class cleanup shipped; verify in browser if desired
+Milestone: **v1.2 complete** (archived 2026-04-27)  
+Next: define v1.3 (or next) with `/gsd-new-milestone`  
 Last activity: 2026-04-27
-
-Progress: v1.2 phase list complete through Phase 18
 
 ## Performance Metrics
 

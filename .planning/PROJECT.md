@@ -8,17 +8,20 @@ SHMALEON is an invitation-only luxury brand positioning around **precision pastr
 
 Deliver a cohesive, trustworthy, visually premium web experience that matches the brand voice (ritual, restraint, craft) while remaining maintainable and legally defensible for the product category.
 
-## Current Milestone: v1.1 Execution refresh
+## Shipped: v1.2 UI/UX polish (2026-04-27)
 
-**Goal:** Deliver the existing v1 static-site roadmap from a clean execution baseline: working shell and navigation, intentional i18n and accessibility, trust and compliance surfaces, then launch documentation and SEO metadata.
+**Milestone v1.2** (Phases 5–18) is complete and archived; see [`.planning/milestones/v1.2-ROADMAP.md`](milestones/v1.2-ROADMAP.md) and `MILESTONES.md`. Git tag: `v1.2` (if pushed).
 
-**Target features:**
+**Next milestone goals (TBD with `/gsd-new-milestone`):** Reconcile requirements checklist with shipped work; address deferred Phase 3 trust when counsel/launch require it; any launch or product asks not covered in the v1.2 slice.
 
-- **`index.html` as canonical home** (collection experience); legacy `the-collection.html` → redirect; primary CTAs (e.g. join priority list) route to **Bespoke**
-- **Mobile-first chrome:** burger nav, collapsed locale picker, no decorative commerce icons; overlap/reflow audit
-- **Social:** Instagram, Telegram, WhatsApp in footer; **Bespoke** gains channel-based contact capture (TG / IG / WA / email) with validation
-- Full **EN → RU/TH** coverage, **browser language detection** + stored override, then accessibility and trust pages
-- Deploy documentation, **SEO** (canonical, meta/OG), and launch checks
+<details>
+<summary>Prior milestone note — v1.1 execution refresh (historical)</summary>
+
+**Goal (v1.1):** Clean execution baseline: shell, i18n, trust surfaces, then deploy/SEO.
+
+**v1.1 feature themes:** `index.html` as home; mobile chrome; social + bespoke contact; EN/RU/TH + auto-locale; deploy + SEO. Much of this shipped in the same 2026-04-27 push as v1.2 UI work.
+
+</details>
 
 ## Requirements
 
@@ -65,6 +68,7 @@ Deliver a cohesive, trustworthy, visually premium web experience that matches th
 | Initialize GSD planning in-repo | Track landing work with phases, requirements, and verification | — Pending |
 | Coarse roadmap (4 phases) | Small surface area; fewer phases reduce overhead | — Pending |
 | v1.1 execution refresh | Clear stale phase dirs; align STATE with roadmap; restart work from Phase 1 | Applied 2026-04-27 |
+| v1.2 UI/UX milestone close | Phases 5–18 delivered; planning archived; fresh requirements next | ✓ 2026-04-27 |
 
 ## Evolution
 
@@ -86,4 +90,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-04-27 — Phase 16 complete; IBM Plex Sans + Noto stack on six public HTML pages*
+*Last updated: 2026-04-27 after v1.2 milestone — archive in `.planning/milestones/`, `REQUIREMENTS.md` removed for next cycle*
