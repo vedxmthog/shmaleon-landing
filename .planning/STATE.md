@@ -3,8 +3,8 @@ gsd_state_version: 1.0
 milestone: v1.2
 milestone_name: — UI/UX polish
 status: executing
-stopped_at: Phase 14 context gathered
-last_updated: "2026-04-27T04:47:44.067Z"
+stopped_at: Phase 14 UI-SPEC approved
+last_updated: "2026-04-27T04:48:49.232Z"
 last_activity: 2026-04-27
 progress:
   total_phases: 18
@@ -86,6 +86,6 @@ None yet.
 
 ## Session continuity
 
-Last session: 2026-04-27T04:47:25.743Z
-Stopped at: Phase 14 context gathered
-Resume file: .planning/phases/14-a11y-follow-up/14-CONTEXT.md
+Last session: 2026-04-27T04:48:49.228Z
+Stopped at: Phase 14 UI-SPEC approved
+Resume file: .planning/phases/14-a11y-follow-up/14-UI-SPEC.md
