@@ -334,7 +334,7 @@ Plans:
 
 1. No hot-linked fragile URLs in hero/catalog without fallback; key images have dimensions or stable layout.
 
-**Plans**: 0 plans
+**Plans**: 2 plans (`15-01-PLAN.md`, `15-02-PLAN.md`)
 
 **UI hint**: partial (images)
 
