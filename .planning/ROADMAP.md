@@ -37,9 +37,9 @@ Ship a production-credible static site: **`index.html` as home** (collection exp
 
 Plans:
 
-- [ ] 01-01: **Home & IA** — **`index.html`** as collection home; **`the-collection.html`** stub → `index.html`; wire nav/footer across all pages; **Join / priority list CTAs → `bespoke.html`**; remove dead `#` pillar links.
-- [ ] 01-02: **Mobile-first chrome** — Implement burger + accessible drawer/panel; remove commerce/person icons; **locale disclosure** in header; responsive audit (nav/hero/sections) to stop overlap.
-- [ ] 01-03: **Footer & bespoke contact** — Add social link row with centralized URLs; add bespoke **contact channel** UI (Telegram / Instagram / WhatsApp / Email) with matching validation and submit hand-off per static constraint (see REQUIREMENTS out-of-scope).
+- [x] 01-01: **Home & IA** — **`index.html`** as collection home; **`the-collection.html`** stub → `index.html`; wire nav/footer across all pages; **Join / priority list CTAs → `bespoke.html`**; remove dead `#` pillar links.
+- [x] 01-02: **Mobile-first chrome** — Implement burger + accessible drawer/panel; remove commerce/person icons; **locale disclosure** in header; responsive audit (nav/hero/sections) to stop overlap.
+- [x] 01-03: **Footer & bespoke contact** — Add social link row with centralized URLs; add bespoke **contact channel** UI (Telegram / Instagram / WhatsApp / Email) with matching validation and submit hand-off per static constraint (see REQUIREMENTS out-of-scope).
 
 **UI hint**: yes
 

@@ -24,13 +24,12 @@ Deliver a cohesive, trustworthy, visually premium web experience that matches th
 
 ### Validated
 
-(None yet — ship to validate)
+- Cohesive information architecture: **collection as home**, cross-links, priority CTA to Bespoke — **Phase 01 (2026-04-27)**.
+- **Mobile-first** global chrome: burger nav, collapsed/click language control, no faux commerce icons; small-screen padding — **Phase 01**.
+- **Social links** (Instagram, Telegram, WhatsApp) in footer; **bespoke** channel-based contact capture with client-side hand-off — **Phase 01** (replace TODO URLs/email before launch).
 
 ### Active
 
-- [ ] Cohesive information architecture: **collection as home**, working cross-links between the three pages, priority CTA to Bespoke, and no placeholder-only navigation.
-- [ ] **Mobile-first** global chrome: burger nav, collapsed language control, no faux commerce icons; fix overlapping layouts on small screens.
-- [ ] **Social links** (Instagram, Telegram, WhatsApp) in footer; **bespoke** contact capture with channel-specific validation.
 - [ ] **Locale:** full RU/TH against EN source; **auto-detect** browser language on first visit with stored user override.
 - [ ] Consistent multilingual product and navigation terminology across pages.
 - [ ] Accessible, meaningful text alternatives for imagery and keyboard-reachable primary actions.
@@ -83,4 +82,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-04-27 — milestone v1.1; IA, mobile chrome, i18n, social, bespoke contact, SEO reflected in REQUIREMENTS*
+*Last updated: 2026-04-27 — Phase 01 complete; validated IA, mobile chrome, social + bespoke contact in PROJECT*

@@ -103,36 +103,40 @@
 <body class="bg-background text-on-background min-h-screen flex flex-col font-body-md antialiased selection:bg-secondary selection:text-on-secondary">
 <!-- TopAppBar -->
 <nav class="fixed top-0 w-full z-50 bg-neutral-950/60 backdrop-blur-2xl border-b border-secondary/20 opacity-fade-in transition-all duration-1000">
-<div class="flex justify-between items-center px-12 py-10 w-full max-w-container-max mx-auto">
-<!-- Navigation Links (Web) -->
-<div class="hidden md:flex gap-8 items-center">
+<div class="w-full max-w-container-max mx-auto relative px-4 py-6 sm:px-6 md:px-12 md:py-10">
+<div class="flex items-center justify-between w-full gap-2 min-h-[2.75rem]">
+<div class="hidden md:flex gap-8 items-center z-10">
 <a class="font-noto-serif tracking-[0.2em] uppercase text-xs text-neutral-400 hover:text-secondary transition-opacity duration-700 ease-in-out" data-i18n="nav_collection" href="index.html">The Collection</a>
 <a class="font-noto-serif tracking-[0.2em] uppercase text-xs text-secondary font-medium border-b border-secondary/40 pb-1 hover:text-amber-100 transition-opacity duration-700 ease-in-out" data-i18n="nav_bespoke" href="bespoke.html">Bespoke</a>
 <a class="font-noto-serif tracking-[0.2em] uppercase text-xs text-neutral-400 hover:text-secondary transition-opacity duration-700 ease-in-out" data-i18n="nav_story" href="the-story.html">The Story</a>
 </div>
-<!-- Brand Logo -->
-<div class="text-2xl font-light tracking-[0.4em] text-neutral-100 font-headline-md uppercase text-center absolute left-1/2 -translate-x-1/2 pointer-events-none drop-shadow-[0_0_10px_rgba(233,193,118,0.3)]">
+<button type="button" id="bespoke-nav-toggle" class="md:hidden z-20 text-secondary hover:text-amber-100 rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-secondary/60" aria-expanded="false" aria-controls="bespoke-mobile-nav" aria-label="Open menu">
+<span class="material-symbols-outlined text-2xl pointer-events-none">menu</span>
+</button>
+<div class="text-lg sm:text-xl md:text-2xl font-light tracking-[0.25em] sm:tracking-[0.35em] md:tracking-[0.4em] text-neutral-100 font-headline-md uppercase text-center absolute left-1/2 -translate-x-1/2 pointer-events-none drop-shadow-[0_0_10px_rgba(233,193,118,0.3)] max-w-[42vw] sm:max-w-none truncate">
                 SHMALEON
             </div>
-<!-- Trailing Icons -->
-<div class="flex gap-6 items-center ml-auto">
-<!-- Mobile Menu Icon (Simulated) -->
-<button class="md:hidden text-secondary hover:text-amber-100">
-<span class="material-symbols-outlined text-2xl">menu</span>
-</button>
-<!-- Language Switcher -->
-<div class="relative group ml-2">
-<button class="text-secondary hover:text-amber-100 transition-colors duration-300 font-label-caps text-[10px] tracking-widest" id="current-lang">EN</button>
-<div class="absolute right-0 top-full mt-4 hidden group-hover:flex flex-col bg-neutral-900 border border-secondary/20 rounded shadow-xl overflow-hidden min-w-[60px]">
-<button class="px-4 py-3 text-[10px] tracking-widest text-on-surface hover:bg-secondary/10 hover:text-secondary text-left font-label-caps transition-colors" onclick="setLanguage('en')">EN</button>
-<button class="px-4 py-3 text-[10px] tracking-widest text-on-surface hover:bg-secondary/10 hover:text-secondary text-left font-label-caps transition-colors" onclick="setLanguage('ru')">RU</button>
-<button class="px-4 py-3 text-[10px] tracking-widest text-on-surface hover:bg-secondary/10 hover:text-secondary text-left font-label-caps transition-colors" onclick="setLanguage('th')">TH</button>
+<div class="flex gap-3 items-center ml-auto z-20">
+<div class="relative ml-2">
+<button type="button" class="text-secondary hover:text-amber-100 transition-colors duration-300 font-label-caps text-[10px] tracking-widest focus:outline-none focus-visible:ring-2 focus-visible:ring-secondary/60 rounded px-1" id="current-lang" aria-expanded="false" aria-controls="bespoke-locale-panel" aria-haspopup="true">EN</button>
+<div id="bespoke-locale-panel" class="hidden absolute right-0 top-full mt-2 flex flex-col bg-neutral-900 border border-secondary/20 rounded shadow-xl overflow-hidden min-w-[60px] z-50" role="menu" aria-hidden="true">
+<button type="button" class="locale-opt px-4 py-3 text-[10px] tracking-widest text-on-surface hover:bg-secondary/10 hover:text-secondary text-left font-label-caps transition-colors" data-lang-pick="en" role="menuitem">EN</button>
+<button type="button" class="locale-opt px-4 py-3 text-[10px] tracking-widest text-on-surface hover:bg-secondary/10 hover:text-secondary text-left font-label-caps transition-colors" data-lang-pick="ru" role="menuitem">RU</button>
+<button type="button" class="locale-opt px-4 py-3 text-[10px] tracking-widest text-on-surface hover:bg-secondary/10 hover:text-secondary text-left font-label-caps transition-colors" data-lang-pick="th" role="menuitem">TH</button>
 </div>
+</div>
+</div>
+</div>
+<div id="bespoke-mobile-nav" class="hidden md:hidden border-t border-secondary/15 bg-neutral-950/95 backdrop-blur-xl" aria-hidden="true">
+<div class="flex flex-col py-4 gap-1 font-noto-serif text-[10px] tracking-widest uppercase">
+<a class="px-4 py-3 text-neutral-400 hover:text-secondary border-l-2 border-transparent" data-i18n="nav_collection" href="index.html">The Collection</a>
+<a class="px-4 py-3 text-secondary font-medium border-l-2 border-secondary" data-i18n="nav_bespoke" href="bespoke.html">Bespoke</a>
+<a class="px-4 py-3 text-neutral-400 hover:text-secondary border-l-2 border-transparent" data-i18n="nav_story" href="the-story.html">The Story</a>
 </div>
 </div>
 </div>
 </nav>
-<main class="flex-grow pt-32 pb-section-padding">
+<main class="flex-grow pt-28 md:pt-32 pb-section-padding">
 <!-- Hero Section -->
 <section class="max-w-container-max mx-auto px-margin-edge mb-section-padding">
 <div class="relative h-[614px] w-full bg-surface-container-lowest overflow-hidden flex items-center justify-center">
@@ -246,9 +250,29 @@
 <input class="w-full bg-transparent border-0 border-b border-outline text-on-surface font-body-md text-body-md py-4 px-0 focus:ring-0 focus:border-secondary placeholder:text-on-surface-variant/30 transition-colors duration-300" data-i18n-placeholder="engraving_placeholder" id="inscription" name="inscription" placeholder="Silently inscribed on the base." type="text"/>
 </div>
 </section>
+<!-- Selection 04: Concierge contact -->
+<section class="opacity-fade-in" style="animation-delay: 0.7s;">
+<div class="flex items-center gap-4 mb-12">
+<span class="font-label-caps text-label-caps text-secondary">04</span>
+<h2 class="font-headline-md text-headline-md text-on-surface" data-i18n="step4_title">Concierge Contact</h2>
+<div class="h-px bg-[#2C2C2C] flex-grow"></div>
+</div>
+<div class="space-y-6 max-w-xl">
+<label class="font-label-caps text-label-caps text-on-surface-variant block" data-i18n="contact_channel_label" for="contact-channel">Channel</label>
+<select class="w-full bg-surface-container-low border border-outline text-on-surface font-body-md py-3 px-4 rounded focus:ring-0 focus:border-secondary" id="contact-channel" name="contact_channel">
+<option value="telegram">Telegram</option>
+<option value="instagram">Instagram</option>
+<option value="whatsapp">WhatsApp</option>
+<option value="email">Email</option>
+</select>
+<label class="font-label-caps text-label-caps text-on-surface-variant block" id="contact-label" for="contact-value">Telegram username or link</label>
+<input class="w-full bg-transparent border-0 border-b border-outline text-on-surface font-body-md py-4 px-0 focus:ring-0 focus:border-secondary" id="contact-value" name="contact_value" type="text" autocomplete="off"/>
+<span class="text-error text-sm hidden" id="contact-error" role="alert" data-i18n="contact_error_invalid">Enter a valid value for this channel.</span>
+</div>
+</section>
 <!-- Action -->
 <section class="pt-margin-edge opacity-fade-in flex justify-center" style="animation-delay: 0.8s;">
-<button class="border border-secondary text-secondary font-label-caps text-label-caps px-16 py-6 hover:bg-secondary hover:text-[#0A0A0A] transition-all duration-500 w-full md:w-auto tracking-widest" data-i18n="btn_submit">
+<button type="button" class="border border-secondary text-secondary font-label-caps text-label-caps px-16 py-6 hover:bg-secondary hover:text-[#0A0A0A] transition-all duration-500 w-full md:w-auto tracking-widest" data-i18n="btn_submit" id="btn-initiate-request">
                     INITIATE REQUEST
                 </button>
 </section>
@@ -260,8 +284,13 @@
             SHMALEON
         </div>
 <div class="font-noto-serif text-[10px] tracking-widest uppercase text-neutral-500 text-center md:text-left" data-i18n="footer_copyright">
-            © 2024 SHMALEON. BY INVITATION ONLY.
+            © 2026 SHMALEON. BY INVITATION ONLY.
         </div>
+<div class="flex flex-wrap gap-4 md:gap-6 font-noto-serif text-[10px] tracking-widest uppercase justify-center md:justify-start" id="footer-social-bespoke">
+<a class="text-neutral-500 hover:text-secondary transition-colors duration-500" data-i18n="footer_social_ig" href="https://instagram.com/TODO" rel="noopener noreferrer" target="_blank">Instagram</a>
+<a class="text-neutral-500 hover:text-secondary transition-colors duration-500" data-i18n="footer_social_tg" href="https://t.me/TODO" rel="noopener noreferrer" target="_blank">Telegram</a>
+<a class="text-neutral-500 hover:text-secondary transition-colors duration-500" data-i18n="footer_social_wa" href="https://wa.me/TODO" rel="noopener noreferrer" target="_blank">WhatsApp</a>
+</div>
 <div class="flex gap-6 font-noto-serif text-[10px] tracking-widest uppercase">
 <a class="text-neutral-500 hover:text-secondary transition-colors duration-500" data-i18n="footer_legal" href="#">Legal</a>
 <a class="text-neutral-500 hover:text-secondary transition-colors duration-500" data-i18n="footer_privacy" href="#">Privacy</a>
@@ -269,6 +298,9 @@
 </div>
 </footer>
 <script>
+    const SOCIAL = { instagram: 'https://instagram.com/TODO', telegram: 'https://t.me/TODO', whatsapp: 'https://wa.me/TODO' };
+    const BESPOKE_MAILTO = 'concierge@example.com';
+
     const translations = {
         en: {
             nav_collection: "The Collection",
@@ -295,7 +327,17 @@
             engraving_label: "Engraving (Optional)",
             engraving_placeholder: "Silently inscribed on the base.",
             btn_submit: "INITIATE REQUEST",
-            footer_copyright: "© 2024 SHMALEON. BY INVITATION ONLY.",
+            step4_title: "Concierge Contact",
+            contact_channel_label: "Channel",
+            contact_label_telegram: "Telegram username or link",
+            contact_label_instagram: "Instagram handle",
+            contact_label_whatsapp: "WhatsApp number (with country code)",
+            contact_label_email: "Email address",
+            contact_error_invalid: "Enter a valid value for this channel.",
+            footer_copyright: "© 2026 SHMALEON. BY INVITATION ONLY.",
+            footer_social_ig: "Instagram",
+            footer_social_tg: "Telegram",
+            footer_social_wa: "WhatsApp",
             footer_legal: "Legal",
             footer_privacy: "Privacy",
             footer_compliance: "Compliance"
@@ -325,7 +367,17 @@
             engraving_label: "Гравировка (опционально)",
             engraving_placeholder: "Безмолвно выгравировано на основании.",
             btn_submit: "ИНИЦИИРОВАТЬ ЗАПРОС",
-            footer_copyright: "© 2024 SHMALEON. ТОЛЬКО ПО ПРИГЛАШЕНИЮ.",
+            step4_title: "Контакт консьержа",
+            contact_channel_label: "Канал",
+            contact_label_telegram: "Имя пользователя или ссылка Telegram",
+            contact_label_instagram: "Имя в Instagram",
+            contact_label_whatsapp: "Номер WhatsApp (с кодом страны)",
+            contact_label_email: "Адрес электронной почты",
+            contact_error_invalid: "Введите корректное значение для этого канала.",
+            footer_copyright: "© 2026 SHMALEON. ТОЛЬКО ПО ПРИГЛАШЕНИЮ.",
+            footer_social_ig: "Instagram",
+            footer_social_tg: "Telegram",
+            footer_social_wa: "WhatsApp",
             footer_legal: "Правовая информация",
             footer_privacy: "Конфиденциальность",
             footer_compliance: "Соответствие требованиям"
@@ -355,29 +407,214 @@
             engraving_label: "การแกะสลัก (ไม่บังคับ)",
             engraving_placeholder: "จารึกเงียบๆ ที่ฐาน",
             btn_submit: "เริ่มส่งคำขอ",
-            footer_copyright: "© 2024 SHMALEON ตามคำเชิญเท่านั้น",
+            step4_title: "ติดต่อคอนเซียร์จ",
+            contact_channel_label: "ช่องทาง",
+            contact_label_telegram: "ชื่อผู้ใช้หรือลิงก์ Telegram",
+            contact_label_instagram: "บัญชี Instagram",
+            contact_label_whatsapp: "หมายเลข WhatsApp (รวมรหัสประเทศ)",
+            contact_label_email: "ที่อยู่อีเมล",
+            contact_error_invalid: "กรุณากรอกข้อมูลให้ถูกต้องสำหรับช่องทางนี้",
+            footer_copyright: "© 2026 SHMALEON ตามคำเชิญเท่านั้น",
+            footer_social_ig: "Instagram",
+            footer_social_tg: "Telegram",
+            footer_social_wa: "WhatsApp",
             footer_legal: "กฎหมาย",
             footer_privacy: "ความเป็นส่วนตัว",
             footer_compliance: "การปฏิบัติตาม"
         }
     };
 
+    let bespokeLang = 'en';
+
+    function syncFooterSocial() {
+        const root = document.getElementById('footer-social-bespoke');
+        if (!root) return;
+        const links = root.querySelectorAll('a');
+        if (links[0]) links[0].href = SOCIAL.instagram;
+        if (links[1]) links[1].href = SOCIAL.telegram;
+        if (links[2]) links[2].href = SOCIAL.whatsapp;
+    }
+
+    function sanitizeContactInput(s) {
+        return String(s).replace(/[<>]/g, '').trim();
+    }
+
+    function digitsOnly(s) {
+        return String(s).replace(/\D/g, '');
+    }
+
+    function validateChannel(channel, raw) {
+        const v = sanitizeContactInput(raw);
+        if (!v) return false;
+        if (channel === 'email') return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+        if (channel === 'whatsapp') return digitsOnly(v).length >= 8;
+        if (channel === 'instagram') {
+            const h = v.replace(/^@/, '');
+            return /^[A-Za-z0-9._]{1,30}$/.test(h);
+        }
+        if (channel === 'telegram') {
+            if (/^https?:\/\//i.test(v)) return true;
+            const u = v.replace(/^@/, '');
+            return /^[A-Za-z0-9_]{5,32}$/.test(u);
+        }
+        return false;
+    }
+
+    function applyContactChannel() {
+        const sel = document.getElementById('contact-channel');
+        const label = document.getElementById('contact-label');
+        const input = document.getElementById('contact-value');
+        const err = document.getElementById('contact-error');
+        if (!sel || !label || !input) return;
+        const ch = sel.value;
+        const map = { telegram: 'contact_label_telegram', instagram: 'contact_label_instagram', whatsapp: 'contact_label_whatsapp', email: 'contact_label_email' };
+        const t = translations[bespokeLang] || translations.en;
+        label.textContent = t[map[ch]] || '';
+        input.removeAttribute('aria-invalid');
+        if (err) err.classList.add('hidden');
+        if (ch === 'email') {
+            input.type = 'email';
+            input.inputMode = 'email';
+            input.placeholder = 'name@example.com';
+        } else if (ch === 'whatsapp') {
+            input.type = 'tel';
+            input.inputMode = 'numeric';
+            input.placeholder = '+66 …';
+        } else if (ch === 'instagram') {
+            input.type = 'text';
+            input.inputMode = 'text';
+            input.placeholder = '@handle';
+        } else {
+            input.type = 'text';
+            input.inputMode = 'text';
+            input.placeholder = '@username';
+        }
+    }
+
     function setLanguage(lang) {
-        document.getElementById('current-lang').textContent = lang.toUpperCase();
-        
+        bespokeLang = lang;
+        const cur = document.getElementById('current-lang');
+        if (cur) cur.textContent = lang.toUpperCase();
+
         document.querySelectorAll('[data-i18n]').forEach(el => {
             const key = el.getAttribute('data-i18n');
-            if (translations[lang][key]) {
+            if (translations[lang] && translations[lang][key]) {
                 el.textContent = translations[lang][key];
             }
         });
 
         document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
             const key = el.getAttribute('data-i18n-placeholder');
-            if (translations[lang][key]) {
+            if (translations[lang] && translations[lang][key]) {
                 el.placeholder = translations[lang][key];
             }
         });
+
+        applyContactChannel();
     }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        syncFooterSocial();
+        setLanguage('en');
+
+        const navToggle = document.getElementById('bespoke-nav-toggle');
+        const mobileNav = document.getElementById('bespoke-mobile-nav');
+        const langBtn = document.getElementById('current-lang');
+        const localePanel = document.getElementById('bespoke-locale-panel');
+
+        function closeMobileNav() {
+            if (!navToggle || !mobileNav) return;
+            mobileNav.classList.add('hidden');
+            mobileNav.setAttribute('aria-hidden', 'true');
+            navToggle.setAttribute('aria-expanded', 'false');
+        }
+
+        function closeLocalePanel() {
+            if (!langBtn || !localePanel) return;
+            localePanel.classList.add('hidden');
+            localePanel.setAttribute('aria-hidden', 'true');
+            langBtn.setAttribute('aria-expanded', 'false');
+        }
+
+        if (navToggle && mobileNav) {
+            navToggle.addEventListener('click', () => {
+                mobileNav.classList.toggle('hidden');
+                const isOpen = !mobileNav.classList.contains('hidden');
+                mobileNav.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
+                navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+                if (isOpen) closeLocalePanel();
+            });
+        }
+
+        if (langBtn && localePanel) {
+            langBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const wasHidden = localePanel.classList.contains('hidden');
+                closeMobileNav();
+                if (wasHidden) {
+                    localePanel.classList.remove('hidden');
+                    localePanel.setAttribute('aria-hidden', 'false');
+                    langBtn.setAttribute('aria-expanded', 'true');
+                } else {
+                    closeLocalePanel();
+                }
+            });
+        }
+
+        document.querySelectorAll('.locale-opt').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const pick = btn.getAttribute('data-lang-pick');
+                if (pick) setLanguage(pick);
+                closeLocalePanel();
+            });
+        });
+
+        document.addEventListener('click', () => closeLocalePanel());
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeMobileNav();
+                closeLocalePanel();
+            }
+        });
+
+        const chSel = document.getElementById('contact-channel');
+        if (chSel) chSel.addEventListener('change', applyContactChannel);
+        applyContactChannel();
+
+        const submitBtn = document.getElementById('btn-initiate-request');
+        if (submitBtn) {
+            submitBtn.addEventListener('click', () => {
+                const channel = document.getElementById('contact-channel').value;
+                const input = document.getElementById('contact-value');
+                const err = document.getElementById('contact-error');
+                const raw = input.value;
+                if (!validateChannel(channel, raw)) {
+                    input.setAttribute('aria-invalid', 'true');
+                    err.classList.remove('hidden');
+                    return;
+                }
+                input.removeAttribute('aria-invalid');
+                err.classList.add('hidden');
+                const formEl = document.querySelector('input[name="form"]:checked');
+                const intEl = document.querySelector('input[name="intensity"]:checked');
+                const inscriptionEl = document.getElementById('inscription');
+                const form = formEl ? formEl.value : '';
+                const intensity = intEl ? intEl.value : '';
+                const inscription = inscriptionEl ? sanitizeContactInput(inscriptionEl.value) : '';
+                const contact = sanitizeContactInput(raw);
+                let body = `Form: ${form}\nIntensity: ${intensity}\nInscription: ${inscription}\nChannel: ${channel}\nContact: ${contact}`;
+                body = body.replace(/[<>]/g, '');
+                if (channel === 'whatsapp') {
+                    const num = digitsOnly(contact);
+                    const text = encodeURIComponent(`Bespoke request — form ${form}, ${intensity}. Inscription: ${inscription}.`);
+                    window.open(`https://wa.me/${num}?text=${text}`, '_blank', 'noopener,noreferrer');
+                } else {
+                    const sub = encodeURIComponent('Bespoke configuration request');
+                    window.location.href = `mailto:${BESPOKE_MAILTO}?subject=${sub}&body=${encodeURIComponent(body)}`;
+                }
+            });
+        }
+    });
 </script>
 </body></html>

@@ -19,3 +19,5 @@ Use the URL the tool prints (often `http://localhost:8080`). The home page is **
 ## Deploy (brief)
 
 The site is static; **GitHub Pages** (or any static host) can serve the root of this branch. Use **relative** links between pages so a project site at `https://<user>.github.io/<repo>/` keeps working. Detailed deploy notes are tracked under **Release engineering** in [`.planning/REQUIREMENTS.md`](.planning/REQUIREMENTS.md) and will be filled as **Phase 4: Launch readiness** in the roadmap.
+
+**Bespoke request hand-off:** `bespoke.html` submits only via client-side `mailto:` or `https://wa.me/…` (no backend). Before launch, replace the `BESPOKE_MAILTO` placeholder and the `SOCIAL` URL map (`instagram` / `telegram` / `whatsapp`) in each page script with production destinations.
