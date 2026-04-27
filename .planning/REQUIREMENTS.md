@@ -8,7 +8,7 @@
 
 ### Site & navigation
 
-- [ ] **SITE-01**: **`the-collection.html` is the canonical marketing home.** Root **`index.html`** performs an immediate redirect (or hosting-level equivalent) to `the-collection.html` so `/` and the collection URL behave as one entry. Primary nav links resolve to real files (`the-collection.html`, `bespoke.html`, `the-story.html`)—no `href="#"` for pillar IA.
+- [ ] **SITE-01**: **`index.html` is the marketing home** and contains the former “collection” catalogue/ritual experience. Legacy URL **`the-collection.html`** remains as a **redirect stub** to `index.html` (meta refresh + `location.replace`) so old links and bookmarks keep working. Primary nav links resolve to **`index.html`**, `bespoke.html`, and `the-story.html`—no `href="#"` for pillar IA.
 - [ ] **SITE-02**: Primary navigation labels and active-state treatment are consistent across all three pages for each locale.
 - [ ] **SITE-03**: Footer copyright year and brand string reflect the agreed business facts (or an explicit “est.” pattern).
 - [ ] **SITE-04**: The **“Join priority list”** call-to-action on the collection page (and any equivalent priority-list CTAs on other pages) navigates to **`bespoke.html`** (relative path appropriate to host depth).
@@ -67,7 +67,7 @@
 |---------|--------|
 | Native mobile apps | Web-first deliverable; separate product decision |
 | Full marketing automation | Email/CRM left to future milestone |
-| Server-side form submission | Static milestone; contact capture may be mailto:, `tel:`, or documented hand-off until backend exists |
+| Server-side form submission | Static milestone; **no server in v1.1**—use **mailto:**, **`https://wa.me/`** deep links, or other client-only hand-off until a backend exists (document chosen pattern in README or `.planning/deploy.md`). |
 
 ## Traceability
 

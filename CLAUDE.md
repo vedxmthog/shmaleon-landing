@@ -3,7 +3,7 @@
 
 **SHMALEON Landing**
 
-SHMALEON is an invitation-only luxury brand positioning around **precision pastry** and **elevated botanical (cannabis) infusion**, anchored in Phuket. This repository holds a **static multi-page marketing site**: `the-collection.html` (catalogue and ritual), `bespoke.html` (configuration flow), and `the-story.html` (brand narrative). Content is available in **English, Russian, and Thai** with mixed i18n implementations per page.
+SHMALEON is an invitation-only luxury brand positioning around **precision pastry** and **elevated botanical (cannabis) infusion**, anchored in Phuket. This repository holds a **static multi-page marketing site**: **`index.html`** (catalogue and ritual—the public home), `bespoke.html` (configuration flow), and `the-story.html` (brand narrative). `the-collection.html` redirects to `index.html`. Content is available in **English, Russian, and Thai** with mixed i18n implementations per page.
 
 **Core Value:** Deliver a cohesive, trustworthy, visually premium web experience that matches the brand voice (ritual, restraint, craft) while remaining maintainable and legally defensible for the product category.
 

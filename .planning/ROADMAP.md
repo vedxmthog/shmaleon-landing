@@ -4,7 +4,7 @@
 
 **Active milestone:** v1.1 — Execution refresh (2026-04-27). Phase workspaces were cleared; all checklist items below are reset to not started.
 
-Ship a production-credible static site: **`the-collection.html` as home**, mobile-first chrome (burger nav, collapsed locale), full EN/RU/TH coverage with browser language detection, bespoke contact capture, social links, compliance-facing pages, and documented deploy plus SEO.
+Ship a production-credible static site: **`index.html` as home** (collection experience), mobile-first chrome (burger nav, collapsed locale), full EN/RU/TH coverage with browser language detection, bespoke contact capture, social links, compliance-facing pages, and documented deploy plus SEO.
 
 ## Phases
 
@@ -25,7 +25,7 @@ Ship a production-credible static site: **`the-collection.html` as home**, mobil
 
 **Success Criteria** (what must be TRUE):
 
-1. `/` resolves to the collection experience via **`index.html` → `the-collection.html`** (or documented host rewrite) and nav `href`s point at real HTML files.
+1. **`/` serves `index.html`** (collection content); **`the-collection.html`** redirects to it; nav `href`s use **`index.html`**, `bespoke.html`, `the-story.html`.
 2. **“Join priority list”** on the collection page goes to **`bespoke.html`**; nav active states remain consistent.
 3. Below the `md` breakpoint, **burger + panel** exposes the same links as desktop; **SHMALEON** title does not collide with controls; at least one documented pass fixes other overlap issues (hero padding, etc.).
 4. **`shopping_bag`** and **`person`** are gone from all pages.
@@ -37,7 +37,7 @@ Ship a production-credible static site: **`the-collection.html` as home**, mobil
 
 Plans:
 
-- [ ] 01-01: **Home & IA** — `index.html` redirect to `the-collection.html`; wire nav/footer across all pages; **Join priority list → `bespoke.html`**; remove dead `#` pillar links.
+- [ ] 01-01: **Home & IA** — **`index.html`** as collection home; **`the-collection.html`** stub → `index.html`; wire nav/footer across all pages; **Join / priority list CTAs → `bespoke.html`**; remove dead `#` pillar links.
 - [ ] 01-02: **Mobile-first chrome** — Implement burger + accessible drawer/panel; remove commerce/person icons; **locale disclosure** in header; responsive audit (nav/hero/sections) to stop overlap.
 - [ ] 01-03: **Footer & bespoke contact** — Add social link row with centralized URLs; add bespoke **contact channel** UI (Telegram / Instagram / WhatsApp / Email) with matching validation and submit hand-off per static constraint (see REQUIREMENTS out-of-scope).
 

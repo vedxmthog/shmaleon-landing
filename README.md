@@ -14,7 +14,7 @@ Use a small **HTTP server** from the **repository root** so scripts and relative
 npx --yes serve -l 8080
 ```
 
-Use the URL the tool prints (often `http://localhost:8080`). Stop the server with **Ctrl+C** in the terminal.
+Use the URL the tool prints (often `http://localhost:8080`). The home page is **`index.html`** (open `/` or `/index.html`). Stop the server with **Ctrl+C** in the terminal.
 
 ## Deploy (brief)
 

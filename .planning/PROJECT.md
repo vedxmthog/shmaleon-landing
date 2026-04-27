@@ -2,7 +2,7 @@
 
 ## What This Is
 
-SHMALEON is an invitation-only luxury brand positioning around **precision pastry** and **elevated botanical (cannabis) infusion**, anchored in Phuket. This repository holds a **static multi-page marketing site**: `the-collection.html` (catalogue and ritual), `bespoke.html` (configuration flow), and `the-story.html` (brand narrative). Content is available in **English, Russian, and Thai** with mixed i18n implementations per page.
+SHMALEON is an invitation-only luxury brand positioning around **precision pastry** and **elevated botanical (cannabis) infusion**, anchored in Phuket. This repository holds a **static multi-page marketing site**: **`index.html`** (catalogue and ritual—the public home), `bespoke.html` (configuration flow), and `the-story.html` (brand narrative). `the-collection.html` redirects to the home for legacy URLs. Content is available in **English, Russian, and Thai** with mixed i18n implementations per page.
 
 ## Core Value
 
@@ -14,7 +14,7 @@ Deliver a cohesive, trustworthy, visually premium web experience that matches th
 
 **Target features:**
 
-- **`the-collection.html` as canonical home** with root redirect; primary CTAs (e.g. join priority list) route to **Bespoke**
+- **`index.html` as canonical home** (collection experience); legacy `the-collection.html` → redirect; primary CTAs (e.g. join priority list) route to **Bespoke**
 - **Mobile-first chrome:** burger nav, collapsed locale picker, no decorative commerce icons; overlap/reflow audit
 - **Social:** Instagram, Telegram, WhatsApp in footer; **Bespoke** gains channel-based contact capture (TG / IG / WA / email) with validation
 - Full **EN → RU/TH** coverage, **browser language detection** + stored override, then accessibility and trust pages
@@ -45,7 +45,7 @@ Deliver a cohesive, trustworthy, visually premium web experience that matches th
 ## Context
 
 - **Stack:** Plain HTML, Tailwind via CDN, Google Fonts, Material Symbols, remote hero imagery (Google CDN URLs).
-- **Pages:** `the-collection.html` (canonical home), `bespoke.html`, `the-story.html`; **`index.html`** should redirect to collection per REQUIREMENTS.
+- **Pages:** **`index.html`** (home / collection), `bespoke.html`, `the-story.html`; **`the-collection.html`** is a redirect stub only.
 - **Brand:** Nav and titles use **SHMALEON**; repository folder name may differ (`smaleon-landing`).
 - **Footers** currently show © 2024; verify intentional vs update for current year.
 
