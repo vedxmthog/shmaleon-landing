@@ -15,7 +15,7 @@ Ship a production-credible static site: **`index.html` as home** (collection exp
 
 ### v1.2 — UI/UX polish (backlog)
 
-- [x] **Phase 5: Locale chrome parity** — Shared `shm-chrome.css` + `shm-locale-ui.js`; identical EN|RU|TH strip, separators, mobile disclosure, and focus rings on all pages (including legal/privacy/compliance); `data-shm-locale-toggle` + `window.shmCloseMobileNav` contract.
+- [x] **Phase 5: Locale chrome parity** — Shared `shm-chrome.css` plus the same per-page EN|RU|TH strip, separators, mobile disclosure, and focus rings on all pages (including legal/privacy/compliance); `data-shm-locale-toggle` + `window.shmCloseMobileNav` contract (locale binding implemented inline, not a separate script).
 - [x] **Phase 6: Responsive & overflow pass** — `min-w-0` / `overflow-x` safety; hero and product image heights scale on small viewports; responsive type for hero and story titles; horizontal padding `px-4 sm:px-6` before `margin-edge`; bespoke step headers and intensity cards avoid clipping.
 - [x] **Phase 7: Bespoke hero full-bleed** — Hero background image spans full viewport width (no `max-w-container-max` gutter on the media block); form content remains in `max-w-4xl` with responsive padding.
 - [ ] **Phase 8: Home hero CTA wiring** — “Inquire” / “Enter” map to real destinations (`bespoke.html`, story, scroll target, or mailto); no dead buttons.
