@@ -13,7 +13,7 @@
 
 - **Nav:** `fixed top-0 w-full z-50` bar; `max-w-container-max mx-auto`; centered SHMALEON `absolute left-1/2 -translate-x-1/2`.
 - **i18n:** `data-lang` + `.lang-en` / `switchLanguage` (story); `lang-*` on `<html>` + CSS hide (collection/index); `data-i18n` + `translations` object (bespoke).
-- **CTAs:** Gold border `border-secondary` / `#C5A059` on story.
+- **CTAs:** Story closing CTA uses `border-secondary`, `text-secondary`, `hover:bg-secondary`, `hover:text-tertiary-container` (design tokens; no ad-hoc hex).
 
 ## Gaps vs target
 
