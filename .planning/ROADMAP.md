@@ -23,7 +23,7 @@ Ship a production-credible static site: **`index.html` as home** (collection exp
 - [x] **Phase 10: Claims & counsel alignment** — Single voice for product/dose language across index, story, and bespoke; record review in `.planning/`. (completed 2026-04-27)
 - [x] **Phase 11: Accent unification** — Replace ad-hoc gold (e.g. Story CTA `#C5A059`) with design-token `secondary` everywhere. (completed 2026-04-27)
 - [x] **Phase 12: Bespoke `<select>` i18n** — Channel option labels via `i18n` keys for EN/RU/TH. (completed 2026-04-27)
-- [ ] **Phase 13: Price clarity** — One line of microcopy under `15,000 THB` (per unit / from / inclusive) in all locales.
+- [x] **Phase 13: Price clarity** — One line of microcopy under `15,000 THB` (per unit / from / inclusive) in all locales. (completed 2026-04-27)
 - [ ] **Phase 14: A11y follow-up** — Skip link; `prefers-reduced-motion` for any future motion; audit focus order after hero CTA fix.
 - [ ] **Phase 15: Media hardening** — Self-host or stabilize image URLs; width/height hints to reduce CLS.
 - [ ] **Phase 16: Typography pass (optional)** — Body type with more character than Inter while keeping Noto for display.
@@ -302,7 +302,7 @@ Plans:
 
 Plans:
 
-- [ ] 13-01: `index_scarcity_price_qualifier` in `i18n.js` + `data-i18n` under `15,000 THB` on `index.html`; mirror `GLOSSARY.md`
+- [x] 13-01: `index_scarcity_price_qualifier` in `i18n.js` + `data-i18n` under `15,000 THB` on `index.html`; mirror `GLOSSARY.md`
 
 **UI hint**: yes
 
