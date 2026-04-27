@@ -60,6 +60,7 @@
       footer_legal: 'Legal',
       footer_privacy: 'Privacy',
       footer_compliance: 'Compliance',
+      index_scarcity_price_qualifier: 'Per piece.',
     },
     ru: {
       nav_collection: 'Коллекция',
@@ -114,6 +115,7 @@
       footer_legal: 'Правовая информация',
       footer_privacy: 'Конфиденциальность',
       footer_compliance: 'Комплаенс',
+      index_scarcity_price_qualifier: 'За единицу.',
     },
     th: {
       nav_collection: 'คอลเลกชัน',
@@ -168,6 +170,7 @@
       footer_legal: 'ข้อกฎหมาย',
       footer_privacy: 'ความเป็นส่วนตัว',
       footer_compliance: 'การปฏิบัติตามกฎ',
+      index_scarcity_price_qualifier: 'ต่อชิ้น',
     },
   };
 
