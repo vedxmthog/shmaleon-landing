@@ -4,14 +4,14 @@ milestone: v1.2
 milestone_name: — UI/UX polish
 status: executing
 stopped_at: Phase 3 deferred; next — Phase 15 plans or `/gsd-progress`
-last_updated: "2026-04-27T05:02:22.843Z"
+last_updated: "2026-04-27T05:06:38.549Z"
 last_activity: 2026-04-27
 progress:
   total_phases: 18
-  completed_phases: 12
+  completed_phases: 13
   total_plans: 20
-  completed_plans: 17
-  percent: 85
+  completed_plans: 18
+  percent: 90
 ---
 
 # Project State
@@ -21,13 +21,13 @@ progress:
 See: `.planning/PROJECT.md` (updated 2026-04-27)
 
 **Core value:** Cohesive, trustworthy, premium static experience aligned with brand and compliance reality.  
-**Current focus:** Phase 15 — media-hardening
+**Current focus:** Phase 16 — typography-pass-optional
 
 ## Current Position
 
-Phase: 16
+Phase: 17
 Plan: Not started
-Status: Executing Phase 15
+Status: Executing Phase 16
 Last activity: 2026-04-27
 
 Progress: see roadmap / `gsd-progress` bar (15/20 plans)
@@ -36,7 +36,7 @@ Progress: see roadmap / `gsd-progress` bar (15/20 plans)
 
 **Velocity:**
 
-- Total plans completed: 15
+- Total plans completed: 16
 - Average duration: —
 - Total execution time: 0 hours
 
@@ -55,6 +55,7 @@ Progress: see roadmap / `gsd-progress` bar (15/20 plans)
 | 13 | 1 | - | - |
 | 14 | 1 | - | - |
 | 15 | 2 | - | - |
+| 16 | 1 | - | - |
 
 **Recent trend:**
 
