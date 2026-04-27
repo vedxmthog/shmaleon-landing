@@ -1,6 +1,7 @@
 # Requirements: SHMALEON Landing
 
 **Defined:** 2026-04-26  
+**Active milestone:** v1.1 — Execution refresh (2026-04-27)  
 **Core value:** Cohesive, trustworthy, premium static experience aligned with brand and compliance reality.
 
 ## v1 Requirements
@@ -73,4 +74,4 @@
 
 ---
 *Requirements defined: 2026-04-26*  
-*Last updated: 2026-04-26 after initialization*
+*Last updated: 2026-04-27 — milestone v1.1; traceability unchanged (all v1 items pending)*

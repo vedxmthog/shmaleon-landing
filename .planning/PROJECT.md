@@ -8,6 +8,17 @@ SHMALEON is an invitation-only luxury brand positioning around **precision pastr
 
 Deliver a cohesive, trustworthy, visually premium web experience that matches the brand voice (ritual, restraint, craft) while remaining maintainable and legally defensible for the product category.
 
+## Current Milestone: v1.1 Execution refresh
+
+**Goal:** Deliver the existing v1 static-site roadmap from a clean execution baseline: working shell and navigation, intentional i18n and accessibility, trust and compliance surfaces, then launch documentation and SEO metadata.
+
+**Target features:**
+
+- Entry page and consistent primary navigation across Collection, Bespoke, and Story
+- EN/RU/TH coherence (per-page contracts documented where mixed) and accessibility hardening
+- Legal, privacy, and compliance destinations with review notes captured in planning
+- Deploy documentation and distinct page titles, meta descriptions, and Open Graph basics
+
 ## Requirements
 
 ### Validated
@@ -46,6 +57,7 @@ Deliver a cohesive, trustworthy, visually premium web experience that matches th
 |----------|-----------|---------|
 | Initialize GSD planning in-repo | Track landing work with phases, requirements, and verification | — Pending |
 | Coarse roadmap (4 phases) | Small surface area; fewer phases reduce overhead | — Pending |
+| v1.1 execution refresh | Clear stale phase dirs; align STATE with roadmap; restart work from Phase 1 | Applied 2026-04-27 |
 
 ## Evolution
 
@@ -67,4 +79,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-04-26 after GSD project initialization*
+*Last updated: 2026-04-27 — milestone v1.1 started; execution baseline reset*

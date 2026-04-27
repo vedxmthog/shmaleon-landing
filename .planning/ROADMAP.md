@@ -2,6 +2,8 @@
 
 ## Overview
 
+**Active milestone:** v1.1 — Execution refresh (2026-04-27). Phase workspaces were cleared; all checklist items below are reset to not started.
+
 Ship a production-credible static site: real navigation and entry point, aligned translations, accessible media, compliance-facing pages, and documented deploy plus SEO metadata.
 
 ## Phases
@@ -104,11 +106,12 @@ Plans:
 
 ## Progress
 
-**Execution order:** 1 → 2 → 3 → 4
+**Execution order:** 1 → 2 → 3 → 4  
+**Last reset:** 2026-04-27 (milestone v1.1)
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-------------|
-| 1. Site shell & navigation | 0/2 | Not started | - |
-| 2. Content, i18n & accessibility | 0/2 | Not started | - |
-| 3. Trust & compliance | 0/1 | Not started | - |
-| 4. Launch readiness | 0/1 | Not started | - |
+| 1. Site shell & navigation | 0/2 | Not started | — |
+| 2. Content, i18n & accessibility | 0/2 | Not started | — |
+| 3. Trust & compliance | 0/1 | Not started | — |
+| 4. Launch readiness | 0/1 | Not started | — |
