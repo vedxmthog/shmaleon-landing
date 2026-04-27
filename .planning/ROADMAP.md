@@ -128,6 +128,90 @@ Plans:
 
 **UI hint**: no
 
+### Phase 5: Locale chrome parity
+
+**Goal**: Shared `shm-chrome.css` and `shm-locale-ui.js` deliver identical EN|RU|TH strip, separators, mobile disclosure, and focus rings on all pages (including legal/privacy/compliance); `data-shm-locale-toggle` and `window.shmCloseMobileNav` contract is stable.
+
+**Depends on**: Phase 4 (launch hygiene baseline); stacks on Phase 1–2 chrome work.
+
+**Requirements**: I18N-03, A11Y-02
+
+**Success Criteria** (what must be TRUE):
+
+1. Locale UI matches across pages; no one-off copy of the old three-button pattern on mobile.
+2. Documented contract: `data-shm-locale-toggle`, `window.shmCloseMobileNav` for executors and future pages.
+
+**Plans**: 0 plans (executed as rolling fixes)
+
+Plans:
+
+- [x] Chrome + locale script parity site-wide
+
+**UI hint**: yes
+
+### Phase 6: Responsive & overflow pass
+
+**Goal**: `min-w-0` / `overflow-x` safety; hero and product image heights scale on small viewports; responsive type for hero and story titles; horizontal padding `px-4 sm:px-6` before `margin-edge`; bespoke step headers and intensity cards avoid clipping.
+
+**Depends on**: Phase 5
+
+**Requirements**: A11Y-01, A11Y-02
+
+**Success Criteria** (what must be TRUE):
+
+1. No horizontal scroll on common mobile widths for home, story, bespoke, and legal shells.
+2. Hero/story typographic scale reads intentional at `sm` and below.
+
+**Plans**: 0 plans (executed as rolling fixes)
+
+Plans:
+
+- [x] Overflow and responsive type pass
+
+**UI hint**: yes
+
+### Phase 7: Bespoke hero full-bleed
+
+**Goal**: Bespoke hero background image spans full viewport width (no `max-w-container-max` gutter on the media block); form content remains in `max-w-4xl` with responsive padding.
+
+**Depends on**: Phase 6
+
+**Requirements**: A11Y-01
+
+**Success Criteria** (what must be TRUE):
+
+1. Media block is full-bleed; content column remains narrow and legible.
+2. Visual regression pass on narrow + wide viewports.
+
+**Plans**: 0 plans (executed as rolling fixes)
+
+Plans:
+
+- [x] Bespoke hero full-bleed layout
+
+**UI hint**: yes
+
+### Phase 8: Home hero CTA wiring
+
+**Goal**: Home (`index.html`) hero **Inquire** / **Enter** (and locale equivalents) map to real destinations—`bespoke.html`, `the-story.html`, in-page section anchors, or `mailto:` / channel links as appropriate; **no** dead buttons, `href="#"`, or placeholder handlers.
+
+**Depends on**: Phase 7
+
+**Requirements**: HERO-CTA-01
+
+**Success Criteria** (what must be TRUE):
+
+1. Every hero primary/secondary CTA has a resolvable target in EN, RU, and TH.
+2. Quick manual pass: click/tap each CTA on mobile + desktop; no no-op.
+
+**Plans**: 0 plans
+
+Plans:
+
+- [ ] 08-01: Wire hero CTAs to real destinations; verify i18n labels unchanged
+
+**UI hint**: yes
+
 ## Progress
 
 **Execution order:** 1 → 2 → 3 → 4  

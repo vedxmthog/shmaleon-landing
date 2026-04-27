@@ -30,6 +30,10 @@
 
 - [ ] **FORM-01**: The bespoke flow includes **contact capture** before or with submit: user selects channel **Telegram** | **Instagram** | **WhatsApp** | **Email**. The input field switches **label, placeholder, `inputmode`/`type`, and client-side validation** to match: Telegram/Instagram → handle/username rules; WhatsApp → E.164 or validated international phone; Email → email format. Inline validation errors are perceivable (linked labels, `aria-invalid` / live region where appropriate—see A11Y in Phase 2).
 
+### Hero & home CTAs (v1.2)
+
+- [ ] **HERO-CTA-01**: On the collection home (`index.html`) hero, **Inquire** / **Enter** (and translated equivalents) use real targets—`bespoke.html`, `the-story.html`, in-page section IDs, or `mailto:` / social deep links. No `href="#"` and no click handlers that only prevent default without navigation.
+
 ### Social & discovery
 
 - [ ] **SOCIAL-01**: Footer or agreed **bottom bar** exposes **Instagram, Telegram, and WhatsApp** links. Target URLs live in one easy-to-edit place (constants block or shared include strategy documented for static HTML) until final handles are fixed.
@@ -93,11 +97,12 @@
 | REL-01 | Phase 4 | Pending |
 | REL-02 | Phase 4 | Pending |
 | SEO-01 | Phase 4 | Pending |
+| HERO-CTA-01 | Phase 8 | Pending |
 
 **Coverage:**
 
-- v1 requirements: 20 total  
-- Mapped to phases: 20  
+- v1 requirements: 21 total  
+- Mapped to phases: 21  
 - Unmapped: 0  
 
 ---
