@@ -34,7 +34,7 @@ patterns-established:
 
 requirements-completed: []
 
-duration: 2 min
+duration: ~2 min
 completed: 2026-04-27
 ---
 

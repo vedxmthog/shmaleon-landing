@@ -28,6 +28,7 @@ Deliver a cohesive, trustworthy, visually premium web experience that matches th
 - **Mobile-first** global chrome: burger nav, collapsed/click language control, no faux commerce icons; small-screen padding — **Phase 01**.
 - **Social links** (Instagram, Telegram, WhatsApp) in footer; **bespoke** channel-based contact capture with client-side hand-off — **Phase 01** (replace TODO URLs/email before launch).
 - **Home hero CTAs:** primary **Inquire** → `bespoke.html`, secondary **Enter** → `the-story.html`, with EN/RU/TH labels — **Phase 08 (2026-04-27)**.
+- **Accent tokens on public HTML:** priority-list / scarcity-style CTAs use design-token classes (`secondary`, `tertiary-container`); no ad-hoc gold hex in shipped `*.html` — **Phase 11 (2026-04-27)**.
 
 ### Active
 
@@ -83,4 +84,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-04-27 — Phase 08 complete; hero CTAs validated in PROJECT*
+*Last updated: 2026-04-27 — Phase 11 complete; accent unification validated in PROJECT*
