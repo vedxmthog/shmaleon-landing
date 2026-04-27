@@ -18,3 +18,50 @@ body {
   overflow-wrap: break-word;
   hyphens: auto;
 }
+
+/* Skip link: off-screen until focused (WCAG-friendly) */
+.shm-skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+
+.shm-skip-link:focus,
+.shm-skip-link:focus-visible {
+  position: fixed;
+  left: 1rem;
+  top: 1rem;
+  z-index: 100;
+  width: auto;
+  height: auto;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+  padding: 0.5rem 0.75rem;
+  background: #121414;
+  color: #e2e2e2;
+  border: 1px solid #e9c176;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+/* Phase 14: skip link + prefers-reduced-motion */
