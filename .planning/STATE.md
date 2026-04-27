@@ -21,16 +21,16 @@ progress:
 See: `.planning/PROJECT.md` (updated 2026-04-27)
 
 **Core value:** Cohesive, trustworthy, premium static experience aligned with brand and compliance reality.  
-**Current focus:** Phase 16 — typography-pass-optional
+**Current focus:** Phase 17 — legal-page-density
 
 ## Current Position
 
 Phase: 17
 Plan: Not started
-Status: Executing Phase 16
+Status: Phase 16 complete; ready for Phase 17 or `/gsd-progress`
 Last activity: 2026-04-27
 
-Progress: see roadmap / `gsd-progress` bar (15/20 plans)
+Progress: see roadmap / `gsd-progress` bar (18/20 plans)
 
 ## Performance Metrics
 

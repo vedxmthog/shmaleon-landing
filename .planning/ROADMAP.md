@@ -352,7 +352,7 @@ Plans:
 
 1. If executed: document font stack change and check CLS/readability; if skipped: N/A.
 
-**Plans**: 0 plans
+**Plans**: 1 plan (`16-01-PLAN.md`) — complete 2026-04-27
 
 **UI hint**: yes
 
